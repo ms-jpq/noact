@@ -5,14 +5,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "plugins": ["prettier"],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/indent": ["warn", 2],
-    "@typescript-eslint/member-delimiter-style": "off",
-    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/prefer-interface": "off",
     "prettier/prettier": "warn"
   }

@@ -41,6 +41,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "prettier": "prettier --write **/**.tsx --write **/**.ts",
     "srv": "webpack-dashboard webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack"

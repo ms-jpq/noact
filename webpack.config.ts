@@ -7,11 +7,11 @@ import path from "path"
 import webpack from "webpack"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
-const mode: webpack.Configuration["mode"] = "production"
-const base = path.resolve(__dirname, "page/docs")
+// const mode: webpack.Configuration["mode"] = "production"
+// const base = path.resolve(__dirname, "_githubpage_")
 
-// const mode: webpack.Configuration["mode"] = "development"
-// const base = path.resolve(__dirname, "out")
+const mode: webpack.Configuration["mode"] = "development"
+const base = path.resolve(__dirname, "out")
 
 const entry = path.resolve(__dirname, "example/index.ts")
 
@@ -41,9 +41,10 @@ const config: webpack.Configuration = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
-              camelCase: "only",
-              localIdentName: "[local]",
+              modules: {
+                localIdentName: "[local]",
+              },
+              localsConvention: "camelCaseOnly",
             },
           },
         ],
@@ -90,6 +91,7 @@ const config: webpack.Configuration = {
     runtimeChunk: "single",
   },
   devServer: {
+    disableHostCheck: true,
     contentBase: base,
     hot: true,
     overlay: true,
