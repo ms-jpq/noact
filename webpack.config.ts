@@ -7,11 +7,11 @@ import path from "path"
 import webpack from "webpack"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
-// const mode: webpack.Configuration["mode"] = "production"
-// const base = path.resolve(__dirname, "_githubpage_")
+const mode: webpack.Configuration["mode"] = "production"
+const base = path.resolve(__dirname, "noact-page")
 
-const mode: webpack.Configuration["mode"] = "development"
-const base = path.resolve(__dirname, "out")
+// const mode: webpack.Configuration["mode"] = "development"
+// const base = path.resolve(__dirname, "out")
 
 const entry = path.resolve(__dirname, "example/index.ts")
 

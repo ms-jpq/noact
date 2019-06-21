@@ -6,7 +6,7 @@ Noact is a minimal ***self-rendering*** Virtual DOM library.
 * **Type safe:** Noact is completely typesafe, which means you get [static type checking][auto complete gif] for free!
 * **Simple:** [Only 60 lines][60 lines] of type declarations & rendering code. (and 10ish lines of code-gen code)
 
-## [Example App](https://crymetothemoon.github.io/page-noact/)
+## [Example App](https://crymetothemoon.github.io/noact-page/)
 
 ## How it feels to write Noact
 
