@@ -26,7 +26,7 @@ import {
   ul,
 } from "../src/noact-elements"
 
-const GITHUB_BASE = "crymetothemoon"
+const GITHUB_BASE = "ms-jpq"
 
 const Assets = (uri: string): string => require(`../_assets/${uri}`)
 
