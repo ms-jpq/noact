@@ -332,7 +332,7 @@ const draw = async (mount: ReturnType<typeof NewMountPoint>, { count, viewing, i
       ),
       div(
         { className: bs.cardBody },
-        section({}, h2({ innerHTML: `${strike({ txt: "Re" })().outerHTML}Noact` })),
+        section({}, h2({ innerHTML: `${"Re".strike()}Noact` })),
         hr({ className: bs.borderDark }),
         section(
           {},
@@ -342,23 +342,19 @@ const draw = async (mount: ReturnType<typeof NewMountPoint>, { count, viewing, i
             li(
               {},
               p({
-                innerHTML: `${
-                  b({ txt: "Declarative:" })().outerHTML
-                } Pretty much like React, without the JSX compilation of course, hence the name.`,
+                innerHTML: `${"Declarative:".bold()} Pretty much like React, without the JSX compilation of course, hence the name.`,
               }),
             ),
             li(
               {},
               p({
-                innerHTML: `${
-                  b({ txt: "Type safe:" })().outerHTML
-                } Noact is completely typesafe, which means you get static type checking for free!`,
+                innerHTML: `${"Type safe:".bold()} Noact is completely typesafe, which means you get static type checking for free!`,
               }),
             ),
             li(
               {},
               p({
-                innerHTML: `${b({ txt: "Simple:" })().outerHTML} Only ${
+                innerHTML: `${"Simple:".bold()} Only ${
                   a({
                     target: "blank",
                     rel: "noopener",
@@ -381,7 +377,7 @@ const draw = async (mount: ReturnType<typeof NewMountPoint>, { count, viewing, i
           p({ txt: "- explosions -" }),
           p({
             className: _(bs.mb0),
-            innerHTML: `Even has support for ${b({ txt: "style auto complete" })().outerHTML}`,
+            innerHTML: `Even has support for ${"style auto complete".bold()}`,
           }),
           img({
             className: _(bs.rounded, bs.imgFluid),
