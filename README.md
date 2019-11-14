@@ -1,4 +1,4 @@
-# ~~Re~~Noact
+# [~~Re~~Noact](https://ms-jpq.github.io/noact/)
 
 Noact is a minimal **_self-rendering_** Virtual DOM library.
 
