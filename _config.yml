@@ -1,3 +1,12 @@
 theme: jekyll-theme-cayman
 
 title: Noact
+
+
+showcase: True
+
+desc: >-
+  React in less than 70 lines. With typesafety, and auto-complete.
+  
+images:
+  - https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/demo.gif
