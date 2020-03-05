@@ -4,3 +4,4 @@ package-lock.json
 noact-page
 out
 *.css.d.ts
+*.scss.d.ts
