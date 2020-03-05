@@ -6,3 +6,6 @@ out
 *.css.d.ts
 *.scss.d.ts
 *.bak
+*.js
+*.map
+/tsc
