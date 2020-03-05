@@ -1,6 +1,5 @@
-type RemoveKeys<T, R> = Pick<T, { [K in keyof T]: T[K] extends R ? never : K }[keyof T]>
-type Props<T> = Partial<RemoveKeys<T, CSSStyleDeclaration | DOMTokenList | DOMStringMap>> & {
-  style?: Partial<RemoveKeys<CSSStyleDeclaration, CSSRule | Function>>
+type Props<T> = Partial<Omit<T, "style" | "dataset">> & {
+  style?: Partial<CSSStyleDeclaration>
   dataset?: Record<string, string | number>
   txt?: string
 }
