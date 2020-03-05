@@ -1,4 +1,7 @@
+import { counter } from "nda/dist/isomorphic/prelude"
+import { map } from "nda/dist/isomorphic/list"
 import { NewMountPoint, NNode } from "../../src/noact"
+import { shuffle } from "nda/dist/isomorphic/rand"
 import {
   a,
   b,
@@ -30,11 +33,10 @@ const enum View {
   showall = "Show all",
 }
 
-type TodoStatus = "done" | "todo"
 type TodoItem = {
   last_update: number
+  status: "done" | "todo"
   message: string
-  status: TodoStatus
 }
 
 type AppState = {
@@ -43,15 +45,20 @@ type AppState = {
   items: TodoItem[]
 }
 
-const DEFAULT_ITEMS: TodoItem[] = Randomize([
-  { message: "Printer ran out of juice again", status: TodoStatus.notdone },
-  { message: "Something about neighbour's cat", status: TodoStatus.notdone },
-  { message: "Go to bed before 1AM", status: TodoStatus.notdone },
-  { message: "Craig owes me money?", status: TodoStatus.notdone },
-  { message: "👋Hire me👋", status: TodoStatus.notdone },
-  { message: "Draw a prefect circle", status: TodoStatus.notdone },
-  { message: "Take out trash", status: TodoStatus.done },
-  { message: "Ask Jenny for penny", status: TodoStatus.done },
-  { message: "Get groceries", status: TodoStatus.done },
-  { message: "Download Mob Psycho", status: TodoStatus.done },
-]).map((item) => ({ ...item, id: Counter() }))
+const inc = counter()
+
+const DEFAULT_ITEMS: TodoItem[] = map(
+  (i) => ({ ...i, last_update: inc() }),
+  shuffle<Pick<TodoItem, "status" | "message">>([
+    { message: "Printer ran out of juice again", status: "todo" },
+    { message: "Something about neighbour's cat", status: "todo" },
+    { message: "Go to bed before 1AM", status: "todo" },
+    { message: "Craig owes me money?", status: "todo" },
+    { message: "👋Hire me👋", status: "todo" },
+    { message: "Draw a prefect circle", status: "todo" },
+    { message: "Take out trash", status: "done" },
+    { message: "Ask Jenny for penny", status: "done" },
+    { message: "Get groceries", status: "done" },
+    { message: "Download Mob Psycho", status: "done" },
+  ]),
+)

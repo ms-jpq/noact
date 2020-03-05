@@ -6,6 +6,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.4.1",
+    "nda": "git+https://github.com/ms-jpq/nda.git",
     "parcel-bundler": "^1.12.4"
   },
   "description": "",
@@ -25,13 +26,11 @@
     "parse-gitignore": "*",
     "prettier": "*",
     "ts-node": "*",
-    "typed-scss-modules": "*",
     "typescript": "*"
   },
   "license": "MIT",
   "scripts": {
-    "prettier": "prettier --write **/**.tsx --write **/**.ts",
-    "srv": "webpack-dashboard webpack-dev-server"
+    "pretty": "prettier --write **/**.tsx --write **/**.ts"
   },
   "version": "1.0.0"
 }
