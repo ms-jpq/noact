@@ -3,7 +3,7 @@ type Props<T> = Partial<Omit<T, "style" | "dataset">> & {
   dataset?: Record<string, string | number>
   txt?: string
 }
-type E = HTMLElementTagNameMap & HTMLElementDeprecatedTagNameMap & Record<string, HTMLElement>
+type E = HTMLElementTagNameMap & Record<string, HTMLElement>
 export type NNode<T extends HTMLElement = HTMLElement> = (() => T) & { tagName: keyof E; props: Props<T>; children: NNode[] }
 export type MaybeNNode = NNode | undefined
 
