@@ -1,11 +1,9 @@
-import CompressionPlugin from "compression-webpack-plugin"
 //@ts-ignore
 import DashboardPlugin from "webpack-dashboard/plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import path from "path"
 import webpack from "webpack"
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
 const mode: webpack.Configuration["mode"] = "production"
 const base = path.resolve(__dirname, "noact-page")
@@ -24,13 +22,8 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader",
-      },
-      {
         test: /\.tsx?$/,
-        use: ["awesome-typescript-loader", "eslint-loader"],
+        use: ["awesome-typescript-loader"],
         exclude: /node_modules/,
       },
       {
@@ -49,19 +42,6 @@ const config: webpack.Configuration = {
           },
         ],
       },
-      {
-        test: /\.(png|jpe?g|gif)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[ext]",
-          },
-        },
-      },
-      {
-        test: /\.exec\.js$/,
-        use: "script-loader",
-      },
     ],
   },
   output: {
@@ -69,10 +49,6 @@ const config: webpack.Configuration = {
   },
   plugins: [
     new DashboardPlugin({}),
-    new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-    }),
-    new CompressionPlugin({}),
     new MiniCssExtractPlugin({}),
     new HtmlWebpackPlugin({
       cache: true,

@@ -5,3 +5,4 @@ noact-page
 out
 *.css.d.ts
 *.scss.d.ts
+*.bak
