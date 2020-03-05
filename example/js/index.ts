@@ -1,8 +1,4 @@
-import bs from "bootstrap/dist/css/bootstrap.min.css"
-import ps from "./page.css"
-import { $, $$, AwaitFrame, Classes as _, DOMReady, Inc, Randomize, Range, Timer } from "./utils"
-import { NewMountPoint, NNode } from "../src/noact"
-import "@fortawesome/fontawesome-free/js/all"
+import { NewMountPoint, NNode } from "../../src/noact"
 import {
   a,
   b,
@@ -24,7 +20,7 @@ import {
   span,
   strike,
   ul,
-} from "../src/noact-elements"
+} from "../../src/noact-elements"
 
 const GITHUB_BASE = "ms-jpq"
 
@@ -436,10 +432,6 @@ const draw = async (mount: ReturnType<typeof NewMountPoint>, { count, viewing, i
   $$(`.${ps.timer}`).forEach((e) => (e.textContent = `rendered ${length} elements in ${elapsed}ms`))
 }
 
-const main = async () => {
-  await DOMReady()
-  document.title = "Noact"
-  draw(NewMountPoint(document.body), { count: 1, viewing: View.notdone, items: DEFAULT_ITEMS })
-}
+draw(NewMountPoint(document.body), { count: 1, viewing: View.notdone, items: DEFAULT_ITEMS })
 
 main()

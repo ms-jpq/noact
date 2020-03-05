@@ -8,4 +8,6 @@ out
 *.bak
 *.js
 *.map
-/tsc
+tsc/
+dist/
+.cache/
