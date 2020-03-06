@@ -7,8 +7,8 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.4.1",
     "nda": "git+https://github.com/ms-jpq/nda.git",
-    "node-sass": "^4.13.1",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.2"
   },
   "description": "",
   "devDependencies": {

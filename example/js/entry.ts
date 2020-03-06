@@ -1,10 +1,9 @@
 import { $$, wait_frame } from "nda/dist/browser/dom"
-import { Body, BodyProps } from "./layout/body"
+import { BodyProps } from "./layout/body"
 import { count, filter, map } from "nda/dist/isomorphic/list"
 import { counter, timer } from "nda/dist/isomorphic/prelude"
-import { Footer, FooterProps } from "./layout/footer"
-import { Header, HeaderProps } from "./layout/header"
 import { NewMountPoint } from "../../src/noact"
+import { Page, PageProps } from "./layout/page"
 import { shuffle } from "nda/dist/isomorphic/rand"
 import { State, TodoItem, TodoStatus, View } from "./state"
 
@@ -46,18 +45,6 @@ const invert_status = (status: TodoStatus) => {
       throw new Error("invaild status")
   }
 }
-
-type PageProps = {
-  header: HeaderProps
-  body: BodyProps
-  footer: FooterProps
-}
-
-const Page = ({ header, body, footer }: PageProps) => [
-  Header(header),
-  Body(body),
-  Footer(footer),
-]
 
 const perf_counter = async () => {
   const t = timer()
@@ -110,7 +97,6 @@ const update = async ({ todo_sections, viewing, items }: State) => {
   const body: BodyProps = {
     todo_sections,
     viewing: viewing.view,
-    last_view_update: viewing.last_update,
     items,
     on_new_bench,
     oninput,
@@ -121,12 +107,13 @@ const update = async ({ todo_sections, viewing, items }: State) => {
   }
 
   const page: PageProps = {
+    last_view_update: viewing.last_update,
     header: {},
     body: body,
     footer: {},
   }
 
-  mount(...Page(page))
+  mount(Page(page))
   await perf_counter()
 }
 

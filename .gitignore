@@ -12,3 +12,4 @@ tsc/
 dist/
 .cache/
 .vscode/
+.parcel-cache/
