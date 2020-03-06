@@ -11,3 +11,4 @@ out
 tsc/
 dist/
 .cache/
+.vscode/

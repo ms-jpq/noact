@@ -30,14 +30,12 @@ const main = async () => {
   const exts = ["ts", "scss", "html"]
   const git_ignore = await slurp(".gitignore")
   const ignore = parse(git_ignore)
-  const execMap = {
-    parcel: "parcel build example/index.html",
-  }
+  const exec = "parcel build example/index.html"
   watch({
     ext: exts.join(),
     colours: true,
     ignore,
-    execMap,
+    exec,
   })
   srv("dist", 8080)
 }
