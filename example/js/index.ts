@@ -1,51 +1,14 @@
+import { Body, BodyProps } from "./layout/body"
 import { counter } from "nda/dist/isomorphic/prelude"
+import { Footer, FooterProps } from "./layout/footer"
+import { Header, HeaderProps } from "./layout/header"
 import { map } from "nda/dist/isomorphic/list"
-import { NewMountPoint, NNode } from "../../src/noact"
+import { NewMountPoint } from "../../src/noact"
 import { shuffle } from "nda/dist/isomorphic/rand"
-import {
-  a,
-  b,
-  br,
-  button,
-  div,
-  h2,
-  h4,
-  h6,
-  header,
-  hr,
-  i,
-  img,
-  input,
-  label,
-  li,
-  p,
-  section,
-  span,
-  strike,
-  ul,
-} from "../../src/noact-elements"
-
-const GITHUB_BASE = "ms-jpq"
-
-const enum View {
-  notdone = "Remaining",
-  done = "Done",
-  showall = "Show all",
-}
-
-type TodoItem = {
-  last_update: number
-  status: "done" | "todo"
-  message: string
-}
-
-type AppState = {
-  count: number
-  viewing: View
-  items: TodoItem[]
-}
+import { TodoItem } from "./state"
 
 const inc = counter()
+const mount = NewMountPoint(document.body)
 
 const DEFAULT_ITEMS: TodoItem[] = map(
   (i) => ({ ...i, last_update: inc() }),
@@ -62,3 +25,12 @@ const DEFAULT_ITEMS: TodoItem[] = map(
     { message: "Download Mob Psycho", status: "done" },
   ]),
 )
+
+type PageProps = {
+  header: HeaderProps
+  body: BodyProps
+  footer: FooterProps
+}
+
+const render = ({ header, body, footer }: PageProps) =>
+  mount(Header(header), Body(body), Footer(footer))

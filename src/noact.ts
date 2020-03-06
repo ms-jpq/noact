@@ -1,4 +1,4 @@
-type Props<T> = Partial<Omit<T, "style" | "dataset">> & {
+type Props<T> = Partial<Omit<T, "style" | "dataset" | "classList">> & {
   style?: Partial<CSSStyleDeclaration>
   dataset?: Record<string, string | number>
   txt?: string
