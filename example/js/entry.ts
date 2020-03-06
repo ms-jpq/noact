@@ -139,3 +139,5 @@ const update = async ({ todo_sections, viewing, items }: State) => {
   mount(...Page(page))
   await perf_counter()
 }
+
+update(INIT_STATE)
