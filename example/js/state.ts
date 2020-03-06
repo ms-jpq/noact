@@ -11,6 +11,9 @@ export type TodoItem = {
 
 export type State = {
   todo_sections: number
-  viewing: View
+  viewing: {
+    view: View
+    last_update: number
+  }
   items: TodoItem[]
 }
