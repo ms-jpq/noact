@@ -8,14 +8,12 @@ import { map, range } from "nda/dist/isomorphic/list"
 import { Todo, TodoProps } from "../components/todo/todo"
 
 export type BodyProps = { todo_sections: number } & BenchmarkControlProps &
-  TodoProps
+  Omit<TodoProps, "idx">
 
 export const Body = ({
   todo_sections,
   viewing,
   items,
-  elements,
-  time_elapsed,
   on_new_bench,
   oninput,
   ontoggle,
@@ -26,7 +24,7 @@ export const Body = ({
   main(
     {},
     Readme({}),
-    BenchmarkControl({ elements, time_elapsed, on_new_bench }),
+    BenchmarkControl({ todo_sections, on_new_bench }),
     ...map(
       (idx) =>
         Todo({
@@ -37,7 +35,7 @@ export const Body = ({
           onremove,
           onselect,
           ontoggle,
-          total_todo_sections: todo_sections,
+          todo_sections,
           still_todo_count,
         }),
       range(1, todo_sections),

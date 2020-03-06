@@ -17,7 +17,7 @@ export const Todo = ({
   viewing,
   items,
   idx,
-  total_todo_sections,
+  todo_sections,
   still_todo_count,
 }: TodoProps) =>
   section(
@@ -25,5 +25,5 @@ export const Todo = ({
     TodoInput({ oninput }),
     TodoSelect({ onselect, viewing }),
     TodoListing({ ontoggle, onremove, items }),
-    TodoInfo({ idx, still_todo_count, total_todo_sections }),
+    TodoInfo({ idx, still_todo_count, todo_sections }),
   )

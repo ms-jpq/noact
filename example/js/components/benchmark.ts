@@ -1,27 +1,28 @@
-import { button, div, input, p, span } from "../../../src/noact-elements"
+import { $ } from "nda/dist/browser/dom"
+import { button, div, input, output, span } from "../../../src/noact-elements"
 import { str } from "nda/dist/isomorphic/prelude"
 
-export type BenchmarkProps = { elements: number; time_elapsed: number }
+export type BenchmarkProps = {}
 
-export const Benchmark = ({ elements, time_elapsed }: BenchmarkProps) =>
-  p({ txt: `rendered ${elements} elements in ${time_elapsed}ms` })
+export const Benchmark = ({}: BenchmarkProps) =>
+  output({ className: "benchmark-output" })
 
 export type BenchmarkControlProps = {
+  todo_sections: number
   on_new_bench: (_: number) => void
 } & BenchmarkProps
 
 export const BenchmarkControl = ({
   on_new_bench,
-  elements,
-  time_elapsed,
+  todo_sections,
 }: BenchmarkControlProps) =>
   div(
-    { id: "benchmark-control" },
+    {},
     div(
-      {},
+      { id: "benchmark-control" },
       span({ txt: "Repeat this:" }),
       input({
-        value: str(elements),
+        value: str(todo_sections),
         onchange: ({ target }) => {
           const { value } = target as HTMLInputElement
           on_new_bench(parseInt(value))
@@ -31,10 +32,10 @@ export const BenchmarkControl = ({
         txt: "GO",
         onclick: ({ target }) => {
           const b = target as HTMLButtonElement
-          const value = b.parentElement?.querySelector("input")?.value
-          on_new_bench(parseInt(value!))
+          const value = $<HTMLInputElement>("input", b.parentElement!)!.value
+          on_new_bench(parseInt(value))
         },
       }),
     ),
-    Benchmark({ elements, time_elapsed }),
+    Benchmark({}),
   )
