@@ -1,30 +1,10 @@
 import { Body, BodyProps } from "./body"
+import { cn } from "nda/dist/isomorphic/dom"
 import { div } from "../../../src/noact-elements"
-import { filter, sort_by_keys } from "nda/dist/isomorphic/list"
+import { filter } from "nda/dist/isomorphic/list"
 import { Footer, FooterProps } from "./footer"
 import { Header, HeaderProps } from "./header"
-import { TodoItem, TodoStatus, View } from "../state"
-
-const idx_by_status = (status: TodoStatus) => {
-  switch (status) {
-    case "todo":
-      return 1
-    case "done":
-      return 2
-    default:
-      throw new Error("invaild status")
-  }
-}
-
-const sort_todos = (last_view_update: number, items: TodoItem[]) =>
-  sort_by_keys(
-    (i) => [
-      i.last_update > last_view_update ? 1 : 0,
-      idx_by_status(i.status),
-      i.last_update,
-    ],
-    items,
-  )
+import { TodoItem, View } from "../state"
 
 const item_visible = (view: View, last_view_update: number, item: TodoItem) => {
   switch (view) {
@@ -45,13 +25,15 @@ export type PageProps = {
 }
 
 export const Page = ({ last_view_update, header, body, footer }: PageProps) => {
-  const sorted = sort_todos(last_view_update, body.items)
   const items = filter(
     (i) => item_visible(body.viewing, last_view_update, i),
-    sorted,
+    body.items,
   )
   return div(
-    { id: "container", className: "d-grid" },
+    {
+      id: "container",
+      className: cn("d-grid", "w-100", "m-auto"),
+    },
     Header(header),
     Body({ ...body, items }),
     Footer(footer),

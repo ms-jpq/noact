@@ -1,6 +1,14 @@
 import { $ } from "nda/dist/browser/dom"
-import { button, div, input, output, span } from "../../../src/noact-elements"
+import {
+  button,
+  div,
+  input,
+  output,
+  section,
+  span,
+} from "../../../src/noact-elements"
 import { str } from "nda/dist/isomorphic/prelude"
+import { cn } from "nda/dist/isomorphic/dom"
 
 export type BenchmarkProps = {}
 
@@ -16,10 +24,10 @@ export const BenchmarkControl = ({
   on_new_bench,
   todo_sections,
 }: BenchmarkControlProps) =>
-  div(
-    {},
+  section(
+    { id: "benchmark-control" },
     div(
-      { id: "benchmark-control" },
+      { id: "benchmark-input" },
       span({ txt: "Repeat this:" }),
       input({
         value: str(todo_sections),
@@ -29,6 +37,7 @@ export const BenchmarkControl = ({
         },
       }),
       button({
+        className: cn("pointer"),
         txt: "GO",
         onclick: ({ target }) => {
           const b = target as HTMLButtonElement

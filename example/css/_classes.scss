@@ -2,7 +2,7 @@
  * View *
  ********/
 
- .w-100 {
+.w-100 {
   width: 100%;
 }
 
@@ -43,6 +43,62 @@
 .d-grid {
   display: grid;
 }
+
+/* justify-items */
+.ji-start {
+  justify-items: start;
+}
+
+.ji-centre {
+  justify-items: center;
+}
+
+.ji-end {
+  justify-items: end;
+}
+/* justify-items */
+
+/* align-items */
+.ai-start {
+  align-items: start;
+}
+
+.ai-centre {
+  align-items: center;
+}
+
+.ai-end {
+  align-items: end;
+}
+/* align-items */
+
+/* justify-content */
+.jc-start {
+  justify-content: start;
+}
+
+.jc-centre {
+  justify-content: center;
+}
+
+.jc-end {
+  justify-content: end;
+}
+/* justify-content */
+
+/* align-content */
+.ac-start {
+  align-content: start;
+}
+
+.ac-centre {
+  align-content: center;
+}
+
+.ac-end {
+  align-content: end;
+}
+/* align-content */
 
 .hidden {
   display: none !important;
@@ -92,6 +148,14 @@
 
 .text-right {
   text-align: right;
+}
+
+/*********
+ * Mouse *
+ *********/
+
+.pointer {
+  cursor: pointer;
 }
 
 /*********

@@ -1,6 +1,6 @@
 import { $$, wait_frame } from "nda/dist/browser/dom"
 import { BodyProps } from "./layout/body"
-import { count, filter, map } from "nda/dist/isomorphic/list"
+import { count, filter, map, sort_by_keys } from "nda/dist/isomorphic/list"
 import { counter, timer } from "nda/dist/isomorphic/prelude"
 import { NewMountPoint } from "../../src/noact"
 import { Page, PageProps } from "./layout/page"
@@ -10,20 +10,36 @@ import { State, TodoItem, TodoStatus, View } from "./state"
 const inc = counter()
 const mount = NewMountPoint(document.body)
 
-const INIT_ITEMS: TodoItem[] = map(
-  (i) => ({ ...i, id: inc(), last_update: inc() }),
-  shuffle<Pick<TodoItem, "status" | "message">>([
-    { message: "Printer ran out of juice again", status: "todo" },
-    { message: "Something about neighbour's cat", status: "todo" },
-    { message: "Go to bed before 1AM", status: "todo" },
-    { message: "Craig owes me money?", status: "todo" },
-    { message: "👋Hire me👋", status: "todo" },
-    { message: "Draw a prefect circle", status: "todo" },
-    { message: "Take out trash", status: "done" },
-    { message: "Ask Jenny for penny", status: "done" },
-    { message: "Get groceries", status: "done" },
-    { message: "Download Mob Psycho", status: "done" },
-  ]),
+const idx_by_status = (status: TodoStatus) => {
+  switch (status) {
+    case "todo":
+      return 1
+    case "done":
+      return 2
+    default:
+      throw new Error("invaild status")
+  }
+}
+
+const sort_todos = (items: TodoItem[]) =>
+  sort_by_keys((i) => [idx_by_status(i.status), i.last_update], items)
+
+const INIT_ITEMS: TodoItem[] = sort_todos(
+  map(
+    (i) => ({ ...i, id: inc(), last_update: inc() }),
+    shuffle<Pick<TodoItem, "status" | "message">>([
+      { message: "Printer ran out of juice again", status: "todo" },
+      { message: "Something about neighbour's cat", status: "todo" },
+      { message: "Go to bed before 1AM", status: "todo" },
+      { message: "Craig owes me money?", status: "todo" },
+      { message: "👋Hire me👋", status: "todo" },
+      { message: "Draw a prefect circle", status: "todo" },
+      { message: "Take out trash", status: "done" },
+      { message: "Ask Jenny for penny", status: "done" },
+      { message: "Get groceries", status: "done" },
+      { message: "Download Mob Psycho", status: "done" },
+    ]),
+  ),
 )
 
 const INIT_STATE: State = {
@@ -46,8 +62,9 @@ const invert_status = (status: TodoStatus) => {
   }
 }
 
-const perf_counter = async () => {
+const perf = async (draw: () => void) => {
   const t = timer()
+  draw()
   await wait_frame()
   const elapsed = Math.round(t())
   const count = $$("*").length
@@ -90,7 +107,11 @@ const update = async ({ todo_sections, viewing, items }: State) => {
   }
 
   const onselect = (view: View) =>
-    update({ todo_sections, items, viewing: { view, last_update: Date.now() } })
+    update({
+      todo_sections,
+      items: sort_todos(items),
+      viewing: { view, last_update: Date.now() },
+    })
 
   const still_todo_count = count((i) => i.status === "todo", items)
 
@@ -113,8 +134,7 @@ const update = async ({ todo_sections, viewing, items }: State) => {
     footer: {},
   }
 
-  mount(Page(page))
-  await perf_counter()
+  await perf(() => mount(Page(page)))
 }
 
 update(INIT_STATE)

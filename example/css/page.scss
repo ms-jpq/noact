@@ -1,3 +1,88 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../../node_modules/bootstrap/dist/css/bootstrap-reboot.css";
 @import "./classes";
+
+:root {
+  --light-grey: rgb(240, 242, 244);
+  --dark-grey: #e9ecef;
+  --border-colour: black;
+}
+
+#container {
+  > * {
+    max-width: 85vw;
+  }
+
+  > header {
+    $padding_v: 3em;
+
+    padding-top: $padding_v;
+    padding-bottom: $padding_v;
+
+    $margin_v: 3em;
+    margin-top: $margin_v;
+    margin-bottom: $margin_v;
+
+
+    background-color: var(--dark-grey);
+  }
+
+  > main {
+  }
+
+  > footer {
+  }
+}
+
+#readme {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0.1em;
+  border-color: var(--border-colour);
+
+  li,
+  p {
+    > * {
+      &::before,
+      &::after {
+        content: " ";
+      }
+    }
+  }
+
+  #readme-header {
+    border-style: solid;
+    border-width: thin;
+    border-color: var(--border-colour);
+
+    background-color: var(--light-grey);
+
+    $padding_v: 0.1em;
+    $padding_h: 0.5em;
+    padding-top: $padding_v;
+    padding-bottom: $padding_v;
+    padding-left: $padding_h;
+    padding-right: $padding_h;
+
+    > p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  #readme-body {
+    // @include sentence_pad;
+  }
+}
+
+#benchmark-control {
+}
+
+.todo {
+  ol {
+    list-style-type: none;
+    > li {
+      display: list-item;
+    }
+  }
+}

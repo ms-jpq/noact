@@ -15,6 +15,6 @@ export const TodoInput = ({ oninput }: TodoInputProps) =>
           oninput(value)
         },
       }),
-      button({}, i({ className: "fas fas-reply" })),
+      button({}, i({ className: "fas fa-reply" })),
     ),
   )

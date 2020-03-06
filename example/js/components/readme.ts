@@ -4,7 +4,6 @@ import {
   h1,
   strike,
   span,
-  article,
   p,
   i,
   hr,
@@ -21,9 +20,12 @@ export type ReadmeProps = {}
 export const Readme = ({}: ReadmeProps) =>
   section(
     { id: "readme" },
-    div({}, p({}, i({ className: "fas fa-book" }), span({ txt: "README.md" }))),
-    article(
-      {},
+    div(
+      { id: "readme-header" },
+      p({}, i({ className: "fas fa-book" }), span({ txt: "README.md" })),
+    ),
+    div(
+      { id: "readme-body" },
       h1({}, a({}, strike({ txt: "Re" }), span({ txt: "Noact" }))),
       hr(),
       p({ txt: "Noact is a minimal self-rendering Virtual DOM library." }),
@@ -67,11 +69,15 @@ export const Readme = ({}: ReadmeProps) =>
         src:
           "https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/demo.gif",
       }),
-      b({ txt: "- Explosions -" }),
+      p({}, b({ txt: "- Explosions -" })),
       p(
         {},
         span({ txt: "Even has support for" }),
         b({ txt: "style auto complete" }),
       ),
+      img({
+        src:
+          "https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/type_demo.png",
+      }),
     ),
   )
