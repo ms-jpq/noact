@@ -22,7 +22,7 @@ export const Todo = ({
 }: TodoProps) =>
   section(
     { className: "todo" },
-    TodoInput({ oninput }),
+    TodoInput({ oninput, idx }),
     TodoSelect({ onselect, viewing }),
     TodoListing({ ontoggle, onremove, items }),
     TodoInfo({ idx, still_todo_count, todo_sections }),
