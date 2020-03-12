@@ -1,6 +1,6 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../../node_modules/bootstrap/dist/css/bootstrap-reboot.css";
-@import "./classes";
+@import "../../node_modules/cda/dist/entry.css";
 
 :root {
   --light-grey: rgb(240, 242, 244);
@@ -22,7 +22,6 @@
     $margin_v: 3em;
     margin-top: $margin_v;
     margin-bottom: $margin_v;
-
 
     background-color: var(--dark-grey);
   }

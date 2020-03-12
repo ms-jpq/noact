@@ -37,7 +37,7 @@ export const BenchmarkControl = ({
         },
       }),
       button({
-        className: cn("pointer"),
+        className: cn("clickable"),
         txt: "GO",
         onclick: ({ target }) => {
           const b = target as HTMLButtonElement

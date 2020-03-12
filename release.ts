@@ -3,15 +3,15 @@ import { cp, readdir, rm } from "nda/dist/node/fs"
 import { filter, map } from "nda/dist/isomorphic/list"
 import { run } from "nda/dist/node/sub_process"
 
-const dist_dir = "dist"
-const artifacts_dir = "artifacts"
+const dist_dir = "./dist"
+const artifacts_dir = "./artifacts"
 
 const main = async () => {
-  const { stdout, stderr } = await run("parcel", "clean")
+  const { stdout, stderr } = await run("npm", "run", "build")
   console.error(stderr)
   console.log(stdout)
   const prev = await readdir(1, artifacts_dir)
-  const prev__artifacts = filter((n) => !n.startsWith(".git"), [
+  const prev__artifacts = filter((n) => !n.endsWith(".git"), [
     ...prev.dirs,
     ...prev.files,
   ])

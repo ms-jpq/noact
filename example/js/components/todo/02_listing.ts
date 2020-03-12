@@ -19,10 +19,10 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
           li(
             { className: "d-grid" },
             span(
-              { className: cn("pointer"), onclick: () => ontoggle(item) },
+              { className: cn("clickable"), onclick: () => ontoggle(item) },
               i({
                 className: cn(
-                  "pointer",
+                  "clickable",
                   "fas",
                   item.status === "todo" ? "fa-toggle-on" : "fa-toggle-off",
                 ),
@@ -30,7 +30,7 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
               span({ txt: item.message }),
             ),
             button({
-              className: cn("pointer"),
+              className: cn("clickable"),
               txt: "×",
               onclick: () => onremove(item),
             }),

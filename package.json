@@ -6,11 +6,12 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.4.1",
+    "cda": "git+https://github.com/ms-jpq/cda.git",
     "nda": "git+https://github.com/ms-jpq/nda.git",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.2"
   },
-  "description": "",
+  "description": "_",
   "devDependencies": {
     "@types/cors": "*",
     "@types/express": "*",
@@ -31,6 +32,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "build": "rm -rf ./dist; parcel build --public-url /noact-pages example/index.html",
     "pretty": "prettier --write **/**.tsx --write **/**.ts"
   },
   "version": "1.0.0"

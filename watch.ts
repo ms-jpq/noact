@@ -8,6 +8,9 @@ import { big_print } from "nda/dist/node/prelude"
 import { hostname } from "os"
 import { slurp } from "nda/dist/node/fs"
 
+const dist_dir = "./dist"
+const port = 8080
+
 const srv = (dir: string, port: number) => {
   express()
     .use(cors())
@@ -37,7 +40,7 @@ const main = async () => {
     ignore,
     exec,
   })
-  srv("dist", 8080)
+  srv(dist_dir, port)
 }
 
 main()
