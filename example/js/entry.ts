@@ -94,7 +94,7 @@ const update = async ({ todo_sections, viewing, items }: State) => {
       (i) => ({
         ...i,
         status: i.id === item.id ? invert_status(i.status) : i.status,
-        last_update: Date.now(),
+        last_update: i.id === item.id ? Date.now() : i.last_update,
       }),
       items,
     )
