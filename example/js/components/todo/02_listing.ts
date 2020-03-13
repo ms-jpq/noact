@@ -27,7 +27,6 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
                 "border-thin",
                 "pt-4",
                 "py-1",
-                "my-1",
               ),
             },
             div(

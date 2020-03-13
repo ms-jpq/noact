@@ -64,12 +64,15 @@ body {
     }
 
     .todo {
-      .todo-select > button {
-        border-color: transparent;
+      .todo-select {
+        > button {
+          border-color: transparent;
+          border-bottom: none;
 
-        &.active {
-          cursor: initial;
-          background-color: var(--background-white);
+          &.active {
+            cursor: initial;
+            background-color: var(--background-white);
+          }
         }
       }
 
@@ -107,6 +110,11 @@ body {
 
 button {
   background-color: unset;
+  &:active,
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 }
 
 ul {

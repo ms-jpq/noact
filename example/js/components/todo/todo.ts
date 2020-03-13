@@ -47,7 +47,7 @@ export const Todo = ({
     TodoSelect({ onselect, viewing }),
     TodoListing({ ontoggle, onremove, items }),
     p({
-      className: cn("todo-info", "px-6"),
+      className: cn("todo-info", "px-6", "my-1"),
       txt: `${still_todo_count} items left`,
     }),
   )
