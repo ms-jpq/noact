@@ -5,83 +5,76 @@
 :root {
   --light-grey: rgb(240, 242, 244);
   --dark-grey: #e9ecef;
-  --border-colour: black;
+  --border-colour: rgba(0, 0, 0, 0.125);
 }
 
 #container {
-  > * {
-    max-width: 85vw;
-  }
+  $max_width: 60em;
+  $padding_top: 3em;
+  $col_gap: 3em;
+
+  max-width: $max_width;
+  padding-top: $padding_top;
+  row-gap: $col_gap;
 
   > header {
-    $padding_v: 3em;
-
+    $padding_v: 2em;
     padding-top: $padding_v;
     padding-bottom: $padding_v;
-
-    $margin_v: 3em;
-    margin-top: $margin_v;
-    margin-bottom: $margin_v;
 
     background-color: var(--dark-grey);
   }
 
   > main {
-  }
+    $row_gap: 1em;
+    row-gap: $row_gap;
 
-  > footer {
-  }
-}
+    #readme {
+      $padding_h: 1.5em;
 
-#readme {
-  border-style: solid;
-  border-width: thin;
-  border-radius: 0.1em;
-  border-color: var(--border-colour);
+      border-radius: 0.3em;
+      border-color: var(--border-colour);
 
-  li,
-  p {
-    > * {
-      &::before,
-      &::after {
-        content: " ";
+      #readme-header {
+        $padding_v: 0.3em;
+        padding-top: $padding_v;
+        padding-bottom: $padding_v;
+
+        padding-left: $padding_h;
+        padding-right: $padding_h;
+
+        background-color: var(--light-grey);
+      }
+
+      #readme-body {
+        padding-left: $padding_h;
+        padding-right: $padding_h;
+      }
+
+      li,
+      p {
+        > * {
+          &::before,
+          &::after {
+            content: " ";
+          }
+        }
+      }
+    }
+
+    #benchmark-control {
+    }
+
+    .todo {
+      ol {
+        list-style-type: none;
+        > li {
+          display: list-item;
+        }
       }
     }
   }
 
-  #readme-header {
-    border-style: solid;
-    border-width: thin;
-    border-color: var(--border-colour);
-
-    background-color: var(--light-grey);
-
-    $padding_v: 0.1em;
-    $padding_h: 0.5em;
-    padding-top: $padding_v;
-    padding-bottom: $padding_v;
-    padding-left: $padding_h;
-    padding-right: $padding_h;
-
-    > p {
-      padding: 0;
-      margin: 0;
-    }
-  }
-
-  #readme-body {
-    // @include sentence_pad;
-  }
-}
-
-#benchmark-control {
-}
-
-.todo {
-  ol {
-    list-style-type: none;
-    > li {
-      display: list-item;
-    }
+  > footer {
   }
 }

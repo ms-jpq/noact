@@ -32,7 +32,7 @@ export const Page = ({ last_view_update, header, body, footer }: PageProps) => {
   return div(
     {
       id: "container",
-      className: cn("d-grid", "w-100", "m-auto"),
+      className: cn("d-grid", "mx-auto"),
     },
     Header(header),
     Body({ ...body, items }),

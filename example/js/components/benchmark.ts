@@ -26,7 +26,10 @@ export const BenchmarkControl = ({
 }: BenchmarkControlProps) => {
   const input_id = "benchmark-input-input"
   return section(
-    { id: "benchmark-control" },
+    {
+      id: "benchmark-control",
+      className: cn("d-grid", "grid-col", "ai-baseline"),
+    },
     div(
       { id: "benchmark-input" },
       label({ txt: "Repeat this:", htmlFor: input_id }),
