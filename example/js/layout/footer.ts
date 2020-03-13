@@ -7,7 +7,7 @@ export const Footer = ({}: FooterProps) =>
     {},
     p(
       { className: "text-centre" },
-      span({ txt: "© 2019 " }),
+      span({ txt: "© " }),
       a({ txt: "ms-jpq", href: "https://ms-jpq.github.io" }),
     ),
   )
