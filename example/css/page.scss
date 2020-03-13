@@ -6,6 +6,7 @@
   --light-grey: rgb(240, 242, 244);
   --dark-grey: #e9ecef;
   --border-colour: rgba(0, 0, 0, 0.125);
+  --border-corner: 0.5em;
 }
 
 #container {
@@ -22,17 +23,18 @@
     padding-top: $padding_v;
     padding-bottom: $padding_v;
 
+    border-radius: var(--border-corner);
     background-color: var(--dark-grey);
   }
 
   > main {
-    $row_gap: 1em;
+    $row_gap: 2em;
     row-gap: $row_gap;
 
     #readme {
       $padding_h: 1.5em;
 
-      border-radius: 0.3em;
+      border-radius: var(--border-corner);
       border-color: var(--border-colour);
 
       #readme-header {
@@ -43,10 +45,15 @@
         padding-left: $padding_h;
         padding-right: $padding_h;
 
+        border-bottom: thin;
+        border-color: var(--border-colour);
         background-color: var(--light-grey);
       }
 
       #readme-body {
+        $padding_v: 0.3em;
+        padding-top: $padding_v;
+
         padding-left: $padding_h;
         padding-right: $padding_h;
       }
@@ -73,8 +80,5 @@
         }
       }
     }
-  }
-
-  > footer {
   }
 }
