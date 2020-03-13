@@ -17,3 +17,5 @@ export type State = {
   }
   items: TodoItem[]
 }
+
+export const [MIN_TODOS, MAX_TODOS] = [1, 100]

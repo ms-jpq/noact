@@ -2,10 +2,17 @@ import { $$, wait_frame } from "nda/dist/browser/dom"
 import { BodyProps } from "./layout/body"
 import { count, filter, map, sort_by_keys } from "nda/dist/isomorphic/list"
 import { counter, timer } from "nda/dist/isomorphic/prelude"
+import { int, shuffle } from "nda/dist/isomorphic/rand"
 import { NewMountPoint } from "../../src/noact"
 import { Page, PageProps } from "./layout/page"
-import { shuffle } from "nda/dist/isomorphic/rand"
-import { State, TodoItem, TodoStatus, View } from "./state"
+import {
+  State,
+  TodoItem,
+  TodoStatus,
+  View,
+  MIN_TODOS,
+  MAX_TODOS,
+} from "./state"
 
 const inc = counter()
 const mount = NewMountPoint(document.body)
@@ -75,8 +82,13 @@ const perf = async (draw: () => void) => {
 }
 
 const update = async ({ todo_sections, viewing, items }: State) => {
-  const on_new_bench = (todo_sections: number) =>
+  const on_new_bench = (val: number) => {
+    const todo_sections = Math.min(MAX_TODOS, Math.max(MIN_TODOS, val))
     update({ todo_sections, items, viewing })
+  }
+
+  const onrandom = () =>
+    update({ items, viewing, todo_sections: int(MIN_TODOS, MAX_TODOS) })
 
   const oninput = (message: string) => {
     const new_item: TodoItem = {
@@ -119,6 +131,7 @@ const update = async ({ todo_sections, viewing, items }: State) => {
     todo_sections,
     viewing: viewing.view,
     items,
+    onrandom,
     on_new_bench,
     oninput,
     ontoggle,

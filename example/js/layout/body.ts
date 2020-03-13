@@ -18,6 +18,7 @@ export const Body = ({
   viewing,
   items,
   on_new_bench,
+  onrandom,
   oninput,
   ontoggle,
   onremove,
@@ -27,7 +28,7 @@ export const Body = ({
   main(
     { className: cn("d-grid") },
     Readme({}),
-    BenchmarkControl({ todo_sections, on_new_bench }),
+    BenchmarkControl({ todo_sections, on_new_bench, onrandom }),
     ...map(
       (idx) =>
         Todo({
