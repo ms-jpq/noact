@@ -81,7 +81,7 @@ const perf = async (draw: () => void) => {
   }
 }
 
-const update = async ({ todo_sections, viewing, items }: State) => {
+const update = ({ todo_sections, viewing, items }: State) => {
   const on_new_bench = (val: number) => {
     const todo_sections = Math.min(MAX_TODOS, Math.max(MIN_TODOS, val))
     update({ todo_sections, items, viewing })
@@ -147,7 +147,7 @@ const update = async ({ todo_sections, viewing, items }: State) => {
     footer: {},
   }
 
-  await perf(() => mount(Page(page)))
+  perf(() => mount(Page(page)))
 }
 
 update(INIT_STATE)

@@ -33,7 +33,7 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
               span({ txt: item.message }),
             ),
             button({
-              className: cn("clickable", "border-clear", "js-end"),
+              className: cn("clickable", "border-clear", "js-end", "font-w900"),
               txt: "×",
               onclick: () => onremove(item),
             }),

@@ -9,6 +9,8 @@
   --border-corner: 0.5em;
 }
 
+$main_padding_h: 1.5em;
+
 body {
   $padding_h: 1em;
   padding-left: $padding_h;
@@ -97,6 +99,37 @@ body {
     }
 
     .todo {
+      grid-template-columns: auto auto;
+
+      .todo-title {
+        grid-area: title;
+      }
+      .todo-input {
+        grid-area: input;
+      }
+      .todo-select {
+        grid-area: select;
+      }
+      .todo-listing {
+        grid-area: listing;
+      }
+      .todo-info {
+        grid-area: info;
+      }
+      .todo-meta {
+        grid-area: meta;
+        margin-right: -$main_padding_h + 0.5em;
+      }
+
+      grid-template-areas:
+        "title meta"
+        "input input"
+        "select select"
+        "listing listing"
+        "info info";
+    }
+
+    .todo {
       .todo-listing {
         ol {
           list-style-type: none;
@@ -115,8 +148,6 @@ body {
           }
         }
       }
-      .todo-info {
-      }
     }
   }
 }
@@ -125,10 +156,13 @@ button {
   background-color: unset;
 }
 
+ul {
+  padding-left: 1.5em;
+}
+
 .mainly-padded {
-  $padding_h: 1.5em;
-  padding-left: $padding_h;
-  padding-right: $padding_h;
+  padding-left: $main_padding_h;
+  padding-right: $main_padding_h;
 }
 
 .lightly-bordered {
