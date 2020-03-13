@@ -17,20 +17,23 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
       ...map(
         (item) =>
           li(
-            { className: "d-grid" },
-            span(
-              { className: cn("clickable"), onclick: () => ontoggle(item) },
+            { className: cn("d-grid", "grid-col", "ac-baseline", "ji-start") },
+            div(
+              {
+                className: cn("todo-message", "clickable"),
+                onclick: () => ontoggle(item),
+              },
               i({
                 className: cn(
                   "clickable",
                   "fas",
-                  item.status === "todo" ? "fa-toggle-on" : "fa-toggle-off",
+                  item.status === "todo" ? "fa-toggle-off" : "fa-toggle-on",
                 ),
               }),
               span({ txt: item.message }),
             ),
             button({
-              className: cn("clickable"),
+              className: cn("clickable", "border-clear", "js-end"),
               txt: "×",
               onclick: () => onremove(item),
             }),

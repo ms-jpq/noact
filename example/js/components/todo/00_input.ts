@@ -1,3 +1,4 @@
+import { non_empty } from "nda/dist/isomorphic/validation"
 import { button, div, i, input, label } from "../../../../src/noact-elements"
 
 export type TodoInputProps = {
@@ -14,8 +15,12 @@ export const TodoInput = ({ oninput, idx }: TodoInputProps) => {
       id: input_id,
       placeholder: "...",
       onchange: ({ target }) => {
-        const { value } = target as HTMLInputElement
-        oninput(value)
+        const input = target as HTMLInputElement
+        const { value } = input
+        if (non_empty(value)) {
+          oninput(value)
+        }
+        input.value = ""
       },
     }),
     button({}, i({ className: "fas fa-reply" })),

@@ -9,12 +9,23 @@
   --border-corner: 0.5em;
 }
 
+body {
+  $padding_h: 1em;
+  padding-left: $padding_h;
+  padding-right: $padding_h;
+}
+
 #container {
   $max_width: 60em;
+  max-width: $max_width;
+
+  > * {
+    max-width: 100vw;
+  }
+
   $padding_top: 3em;
   $col_gap: 3em;
 
-  max-width: $max_width;
   padding-top: $padding_top;
   row-gap: $col_gap;
 
@@ -76,15 +87,42 @@
         "input output";
     }
 
-    .todo {
-      ol {
-        list-style-type: none;
-        > li {
-          display: list-item;
+    #benchmark-input {
+      > * {
+        &::before {
+          content: " ";
+          width: 0.5em;
         }
       }
     }
+
+    .todo {
+      .todo-listing {
+        ol {
+          list-style-type: none;
+          padding-left: 0.5em;
+          > li {
+            .todo-message {
+              > i {
+                color: #0056b3;
+                &::after {
+                  content: " ";
+                  display: inline-block;
+                  width: 0.5em;
+                }
+              }
+            }
+          }
+        }
+      }
+      .todo-info {
+      }
+    }
   }
+}
+
+button {
+  background-color: unset;
 }
 
 .mainly-padded {

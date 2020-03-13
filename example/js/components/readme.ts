@@ -80,6 +80,7 @@ export const Readme = ({}: ReadmeProps) =>
       hr(),
       h2({ txt: "How it feels to write Noact" }),
       img({
+        className: "img-responsive",
         src:
           "https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/demo.gif",
       }),
@@ -90,6 +91,7 @@ export const Readme = ({}: ReadmeProps) =>
         b({ txt: "style auto complete" }),
       ),
       img({
+        className: "img-responsive",
         src:
           "https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/type_demo.png",
       }),

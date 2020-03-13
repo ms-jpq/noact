@@ -1,3 +1,4 @@
+import { cn } from "nda/dist/isomorphic/dom"
 import { div, span } from "../../../../src/noact-elements"
 
 export type TodoInfoProps = {
@@ -12,7 +13,7 @@ export const TodoInfo = ({
   still_todo_count,
 }: TodoInfoProps) =>
   div(
-    { className: "todo-info" },
+    { className: cn("todo-info", "d-grid", "grid-col", "jc-space-between") },
     span({ txt: `${still_todo_count} items left` }),
     span({ txt: `${idx} of ${todo_sections}` }),
   )

@@ -54,7 +54,7 @@ export const BenchmarkControl = ({
         },
       }),
       button({
-        className: cn("clickable"),
+        className: cn("clickable", "border-thin"),
         txt: "Random",
         onclick: onrandom,
       }),
