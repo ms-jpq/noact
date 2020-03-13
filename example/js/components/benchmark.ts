@@ -33,10 +33,11 @@ export const BenchmarkControl = ({
       id: "benchmark-control",
       className: cn(
         "d-grid",
-        "ai-baseline",
+        "ai-centre",
         "jc-space-between",
         "lightly-bordered",
         "px-6",
+        "py-2",
         "row-gap-1",
         "col-gap-4",
       ),
@@ -45,28 +46,31 @@ export const BenchmarkControl = ({
     div(
       {
         id: "benchmark-input",
-        className: cn("lab-inp-btn"),
+        className: cn("d-flex", "ai-baseline", "flex-wrap"),
       },
       label({
         htmlFor: input_id,
         txt: `Put in ${MIN_TODOS}-${MAX_TODOS}:`,
       }),
-      input({
-        id: input_id,
-        type: "number",
-        min: str(MIN_TODOS),
-        max: str(MAX_TODOS),
-        value: str(todo_sections),
-        onchange: ({ target }) => {
-          const { value } = target as HTMLInputElement
-          on_new_bench(parseInt(value))
-        },
-      }),
-      button({
-        className: cn("clickable", "border-thin"),
-        txt: "Random",
-        onclick: onrandom,
-      }),
+      div(
+        { className: cn("d-flex") },
+        input({
+          id: input_id,
+          type: "number",
+          min: str(MIN_TODOS),
+          max: str(MAX_TODOS),
+          value: str(todo_sections),
+          onchange: ({ target }) => {
+            const { value } = target as HTMLInputElement
+            on_new_bench(parseInt(value))
+          },
+        }),
+        button({
+          className: cn("clickable", "border-thin", "flex-shrink-1"),
+          txt: "Random",
+          onclick: onrandom,
+        }),
+      ),
     ),
     Benchmark({}),
   )
