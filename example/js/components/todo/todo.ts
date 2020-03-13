@@ -40,7 +40,7 @@ export const Todo = ({
       h2({ className: cn("todo-title", "mb-0"), txt: "TODO" }),
       p({
         className: cn("todo-meta", "text-right"),
-        txt: `${idx} of ${todo_sections}`,
+        txt: `${idx} of ${todo_sections} synchronized`,
       }),
     ),
     TodoInput({ oninput, idx }),

@@ -37,8 +37,9 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
               i({
                 className: cn(
                   "clickable",
-                  "fas",
-                  item.status === "todo" ? "fa-toggle-off" : "fa-toggle-on",
+                  item.status === "todo"
+                    ? "far fa-check-square"
+                    : "fas fa-check-square",
                 ),
               }),
               span({ txt: item.message }),
