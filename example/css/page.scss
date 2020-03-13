@@ -64,15 +64,21 @@ body {
     }
 
     .todo {
-      .todo-select {
-        > button {
-          border-color: transparent;
-          border-bottom: none;
+      .todo-select > button {
+        > * {
+          font-weight: 500;
+        }
 
-          &.active {
-            cursor: initial;
-            background-color: var(--background-white);
-          }
+        $radius: 0.5em;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+
+        border-color: transparent;
+        border-bottom: none;
+
+        &.active {
+          cursor: initial;
+          background-color: var(--background-white);
         }
       }
 
