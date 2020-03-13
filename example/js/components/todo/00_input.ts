@@ -12,6 +12,7 @@ export const TodoInput = ({ oninput, idx }: TodoInputProps) => {
     label({ txt: "I need to:", htmlFor: input_id }),
     input({
       id: input_id,
+      placeholder: "...",
       onchange: ({ target }) => {
         const { value } = target as HTMLInputElement
         oninput(value)

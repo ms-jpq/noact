@@ -1,4 +1,5 @@
-import { section } from "../../../../src/noact-elements"
+import { cn } from "nda/dist/isomorphic/dom"
+import { h2, section } from "../../../../src/noact-elements"
 import { TodoInfo, TodoInfoProps } from "./03_info"
 import { TodoInput, TodoInputProps } from "./00_input"
 import { TodoListing, TodoListingProps } from "./02_listing"
@@ -21,7 +22,8 @@ export const Todo = ({
   still_todo_count,
 }: TodoProps) =>
   section(
-    { className: "todo" },
+    { className: cn("todo", "mainly-padded", "lightly-bordered") },
+    h2({ txt: "TODO" }),
     TodoInput({ oninput, idx }),
     TodoSelect({ onselect, viewing }),
     TodoListing({ ontoggle, onremove, items }),

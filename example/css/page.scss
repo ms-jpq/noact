@@ -23,39 +23,25 @@
     padding-top: $padding_v;
     padding-bottom: $padding_v;
 
-    border-radius: var(--border-corner);
     background-color: var(--dark-grey);
   }
 
   > main {
-    $padding_h: 1.5em;
-
     $row_gap: 2em;
     row-gap: $row_gap;
 
     #readme {
-      border-radius: var(--border-corner);
-      border-color: var(--border-colour);
-
       #readme-header {
         $padding_v: 0.3em;
         padding-top: $padding_v;
         padding-bottom: $padding_v;
 
-        padding-left: $padding_h;
-        padding-right: $padding_h;
-
-        border-bottom: thin;
-        border-color: var(--border-colour);
         background-color: var(--light-grey);
       }
 
       #readme-body {
         $padding_v: 0.3em;
         padding-top: $padding_v;
-
-        padding-left: $padding_h;
-        padding-right: $padding_h;
       }
 
       li,
@@ -70,9 +56,6 @@
     }
 
     #benchmark-control {
-      padding-left: $padding_h;
-      padding-right: $padding_h;
-
       grid-template-columns: 1fr auto;
 
       $grid_gap: 0.2em;
@@ -91,9 +74,6 @@
       grid-template-areas:
         "title title"
         "input output";
-
-      border-radius: var(--border-corner);
-      border-color: var(--border-colour);
     }
 
     .todo {
@@ -105,4 +85,17 @@
       }
     }
   }
+}
+
+.mainly-padded {
+  $padding_h: 1.5em;
+  padding-left: $padding_h;
+  padding-right: $padding_h;
+}
+
+.lightly-bordered {
+  border-style: solid;
+  border-width: thin;
+  border-radius: var(--border-corner);
+  border-color: var(--border-colour);
 }
