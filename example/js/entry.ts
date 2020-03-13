@@ -118,12 +118,15 @@ const update = ({ todo_sections, viewing, items }: State) => {
     update({ todo_sections, items: new_items, viewing })
   }
 
-  const onselect = (view: View) =>
-    update({
-      todo_sections,
-      items: sort_todos(items),
-      viewing: { view, last_update: Date.now() },
-    })
+  const onselect = (view: View) => {
+    if (view !== viewing.view) {
+      update({
+        todo_sections,
+        items: sort_todos(items),
+        viewing: { view, last_update: Date.now() },
+      })
+    }
+  }
 
   const still_todo_count = count((i) => i.status === "todo", items)
 

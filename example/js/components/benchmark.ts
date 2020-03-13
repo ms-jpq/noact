@@ -34,14 +34,21 @@ export const BenchmarkControl = ({
       className: cn(
         "d-grid",
         "ai-baseline",
+        "jc-space-between",
         "lightly-bordered",
         "mainly-padded",
       ),
     },
     h2({ id: "benchmark-title", txt: "Benchmark" }),
     div(
-      { id: "benchmark-input" },
-      label({ txt: `Put in ${MIN_TODOS}-${MAX_TODOS}:`, htmlFor: input_id }),
+      {
+        id: "benchmark-input",
+        className: cn("lab-inp-btn"),
+      },
+      label({
+        htmlFor: input_id,
+        txt: `Put in ${MIN_TODOS}-${MAX_TODOS}:`,
+      }),
       input({
         id: input_id,
         type: "number",

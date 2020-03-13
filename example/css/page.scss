@@ -5,11 +5,18 @@
 :root {
   --light-grey: rgb(240, 242, 244);
   --dark-grey: #e9ecef;
+  --slight-grey: rgba(0, 0, 0, 0.03);
   --border-colour: rgba(0, 0, 0, 0.125);
   --border-corner: 0.5em;
+  --background-white: white;
 }
 
 $main_padding_h: 1.5em;
+
+@mixin mainly_padded() {
+  padding-left: $main_padding_h;
+  padding-right: $main_padding_h;
+}
 
 body {
   $padding_h: 1em;
@@ -71,8 +78,10 @@ body {
     #benchmark-control {
       grid-template-columns: 1fr auto;
 
-      $grid_gap: 0.2em;
-      row-gap: $grid_gap;
+      $col_gap: 1em;
+      $row_gap: 0.2em;
+      row-gap: $row_gap;
+      column-gap: $col_gap;
 
       #benchmark-title {
         grid-area: title;
@@ -82,6 +91,7 @@ body {
       }
       .benchmark-output {
         grid-area: output;
+        text-align: right;
       }
 
       grid-template-areas:
@@ -89,44 +99,25 @@ body {
         "input output";
     }
 
-    #benchmark-input {
+    .todo {
       > * {
-        &::before {
-          content: " ";
-          width: 0.5em;
+        @include mainly_padded();
+      }
+
+      .todo-select > button {
+        border-color: transparent;
+
+        &.active {
+          cursor: initial;
+          background-color: var(--background-white);
         }
       }
-    }
 
-    .todo {
-      grid-template-columns: auto auto;
-
-      .todo-title {
-        grid-area: title;
-      }
-      .todo-input {
-        grid-area: input;
-      }
-      .todo-select {
-        grid-area: select;
-      }
       .todo-listing {
-        grid-area: listing;
-      }
-      .todo-info {
-        grid-area: info;
-      }
-      .todo-meta {
-        grid-area: meta;
-        margin-right: -$main_padding_h + 0.5em;
+        background-color: var(--background-white);
       }
 
-      grid-template-areas:
-        "title meta"
-        "input input"
-        "select select"
-        "listing listing"
-        "info info";
+      background-color: var(--slight-grey);
     }
 
     .todo {
@@ -161,8 +152,7 @@ ul {
 }
 
 .mainly-padded {
-  padding-left: $main_padding_h;
-  padding-right: $main_padding_h;
+  @include mainly_padded();
 }
 
 .lightly-bordered {
@@ -170,4 +160,19 @@ ul {
   border-width: thin;
   border-radius: var(--border-corner);
   border-color: var(--border-colour);
+}
+
+.lab-inp-btn {
+  height: 2em;
+  width: 100%;
+  display: flex;
+
+  > label {
+  }
+  > input {
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+  > button {
+  }
 }
