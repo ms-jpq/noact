@@ -11,57 +11,26 @@
   --background-white: white;
 }
 
-$main_padding_h: 1.5em;
-
-@mixin mainly_padded() {
-  padding-left: $main_padding_h;
-  padding-right: $main_padding_h;
-}
-
 body {
   $padding_h: 1em;
   padding-left: $padding_h;
   padding-right: $padding_h;
+
+  max-width: 100vw;
 }
 
 #container {
   $max_width: 60em;
   max-width: $max_width;
 
-  > * {
-    max-width: 100vw;
-  }
-
-  $padding_top: 3em;
-  $col_gap: 3em;
-
-  padding-top: $padding_top;
-  row-gap: $col_gap;
-
   > header {
-    $padding_v: 2em;
-    padding-top: $padding_v;
-    padding-bottom: $padding_v;
-
     background-color: var(--dark-grey);
   }
 
   > main {
-    $row_gap: 2em;
-    row-gap: $row_gap;
-
     #readme {
       #readme-header {
-        $padding_v: 0.3em;
-        padding-top: $padding_v;
-        padding-bottom: $padding_v;
-
         background-color: var(--light-grey);
-      }
-
-      #readme-body {
-        $padding_v: 0.3em;
-        padding-top: $padding_v;
       }
 
       li,
@@ -77,11 +46,6 @@ body {
 
     #benchmark-control {
       grid-template-columns: 1fr auto;
-
-      $col_gap: 1em;
-      $row_gap: 0.2em;
-      row-gap: $row_gap;
-      column-gap: $col_gap;
 
       #benchmark-title {
         grid-area: title;
@@ -100,10 +64,6 @@ body {
     }
 
     .todo {
-      > * {
-        @include mainly_padded();
-      }
-
       .todo-select > button {
         border-color: transparent;
 
@@ -115,17 +75,17 @@ body {
 
       .todo-listing {
         background-color: var(--background-white);
-      }
 
-      background-color: var(--slight-grey);
-    }
-
-    .todo {
-      .todo-listing {
         ol {
           list-style-type: none;
           padding-left: 0.5em;
           > li {
+            border-color: var(--border-colour);
+
+            &:first-child {
+              border: none;
+            }
+
             .todo-message {
               > i {
                 color: #0056b3;
@@ -139,6 +99,8 @@ body {
           }
         }
       }
+
+      background-color: var(--slight-grey);
     }
   }
 }
@@ -151,10 +113,6 @@ ul {
   padding-left: 1.5em;
 }
 
-.mainly-padded {
-  @include mainly_padded();
-}
-
 .lightly-bordered {
   border-style: solid;
   border-width: thin;
@@ -163,16 +121,16 @@ ul {
 }
 
 .lab-inp-btn {
-  height: 2em;
-  width: 100%;
-  display: flex;
+  // height: 2em;
+  // width: 100%;
+  // display: flex;
 
-  > label {
-  }
-  > input {
-    flex-shrink: 1;
-    flex-grow: 1;
-  }
-  > button {
-  }
+  // > label {
+  // }
+  // > input {
+  //   flex-shrink: 1;
+  //   flex-grow: 1;
+  // }
+  // > button {
+  // }
 }

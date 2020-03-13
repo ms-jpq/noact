@@ -10,7 +10,7 @@ export type TodoInputProps = {
 export const TodoInput = ({ oninput, idx }: TodoInputProps) => {
   const input_id = `todo-input-${idx}`
   return div(
-    { className: cn("todo-input", "lab-inp-btn") },
+    { className: cn("todo-input", "px-6", "lab-inp-btn") },
     label({ txt: "I need to:", htmlFor: input_id }),
     input({
       id: input_id,

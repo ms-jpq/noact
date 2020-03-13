@@ -24,7 +24,7 @@ export const Readme = ({}: ReadmeProps) =>
   section(
     { id: "readme", className: cn("lightly-bordered") },
     div(
-      { id: "readme-header", className: "mainly-padded" },
+      { id: "readme-header", className: cn("px-6", "py-1") },
       h4(
         { className: "mp-0" },
         i({ className: "fas fa-book" }),
@@ -32,7 +32,7 @@ export const Readme = ({}: ReadmeProps) =>
       ),
     ),
     div(
-      { id: "readme-body", className: "mainly-padded" },
+      { id: "readme-body", className: cn("px-6", "pt-1") },
       h1(
         {},
         a(

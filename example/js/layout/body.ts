@@ -26,7 +26,7 @@ export const Body = ({
   still_todo_count,
 }: BodyProps) =>
   main(
-    { className: cn("d-grid") },
+    { className: cn("d-grid", "row-gap-8") },
     Readme({}),
     BenchmarkControl({ todo_sections, on_new_bench, onrandom }),
     ...map(

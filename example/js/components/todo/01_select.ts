@@ -9,7 +9,7 @@ export type TodoSelectProps = {
 
 export const TodoSelect = ({ onselect, viewing }: TodoSelectProps) =>
   div(
-    { className: "todo-select" },
+    { className: cn("todo-select", "px-6") },
     button({
       txt: "Remaining",
       className: cn({ active: viewing === "todo" }),

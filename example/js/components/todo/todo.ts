@@ -28,7 +28,14 @@ export const Todo = ({
     },
     div(
       {
-        className: cn("todo-header", "d-grid", "grid-col", "jc-space-between"),
+        className: cn(
+          "todo-header",
+          "d-grid",
+          "grid-col",
+          "jc-space-between",
+          "ai-baseline",
+          "px-6",
+        ),
       },
       h2({ className: cn("todo-title", "mb-0"), txt: "TODO" }),
       p({
@@ -39,5 +46,8 @@ export const Todo = ({
     TodoInput({ oninput, idx }),
     TodoSelect({ onselect, viewing }),
     TodoListing({ ontoggle, onremove, items }),
-    p({ className: "todo-info", txt: `${still_todo_count} items left` }),
+    p({
+      className: cn("todo-info", "px-6"),
+      txt: `${still_todo_count} items left`,
+    }),
   )

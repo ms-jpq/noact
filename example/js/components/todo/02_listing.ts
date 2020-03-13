@@ -11,13 +11,25 @@ export type TodoListingProps = {
 
 export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
   div(
-    { className: "todo-listing" },
+    { className: cn("todo-listing", "px-6") },
     ol(
       {},
       ...map(
         (item) =>
           li(
-            { className: cn("d-grid", "grid-col", "ac-baseline", "ji-start") },
+            {
+              className: cn(
+                "d-grid",
+                "grid-col",
+                "ac-baseline",
+                "ji-start",
+                "border-top-solid",
+                "border-thin",
+                "pt-4",
+                "py-1",
+                "my-1",
+              ),
+            },
             div(
               {
                 className: cn("todo-message", "clickable"),
