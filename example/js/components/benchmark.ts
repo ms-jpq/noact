@@ -9,7 +9,6 @@ import {
   section,
   h2,
 } from "../../../src/noact-elements"
-import { int } from "nda/dist/isomorphic/rand"
 import { MIN_TODOS, MAX_TODOS } from "../state"
 
 export type BenchmarkProps = {}
