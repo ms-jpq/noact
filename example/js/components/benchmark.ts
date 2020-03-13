@@ -8,6 +8,7 @@ import {
   label,
   output,
   section,
+  h2,
 } from "../../../src/noact-elements"
 
 export type BenchmarkProps = {}
@@ -28,8 +29,9 @@ export const BenchmarkControl = ({
   return section(
     {
       id: "benchmark-control",
-      className: cn("d-grid", "grid-col", "ai-baseline"),
+      className: cn("d-grid", "ai-baseline", "border-thin", "border-solid"),
     },
+    h2({ id: "benchmark-title", txt: "Benchmark" }),
     div(
       { id: "benchmark-input" },
       label({ txt: "Repeat this:", htmlFor: input_id }),

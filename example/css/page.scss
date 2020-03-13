@@ -28,12 +28,12 @@
   }
 
   > main {
+    $padding_h: 1.5em;
+
     $row_gap: 2em;
     row-gap: $row_gap;
 
     #readme {
-      $padding_h: 1.5em;
-
       border-radius: var(--border-corner);
       border-color: var(--border-colour);
 
@@ -70,6 +70,30 @@
     }
 
     #benchmark-control {
+      padding-left: $padding_h;
+      padding-right: $padding_h;
+
+      grid-template-columns: 1fr auto;
+
+      $grid_gap: 0.2em;
+      row-gap: $grid_gap;
+
+      #benchmark-title {
+        grid-area: title;
+      }
+      #benchmark-input {
+        grid-area: input;
+      }
+      .benchmark-output {
+        grid-area: output;
+      }
+
+      grid-template-areas:
+        "title title"
+        "input output";
+
+      border-radius: var(--border-corner);
+      border-color: var(--border-colour);
     }
 
     .todo {
