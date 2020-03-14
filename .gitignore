@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 package-lock.json
-noact-page
 out
 *.css.d.ts
 *.scss.d.ts
@@ -13,3 +12,4 @@ dist/
 .cache/
 .vscode/
 .parcel-cache/
+artifacts/
