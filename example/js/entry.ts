@@ -1,7 +1,7 @@
 import { $$, wait_frame } from "nda/dist/browser/dom"
 import { BodyProps } from "./layout/body"
 import { count, filter, map, sort_by_keys } from "nda/dist/isomorphic/list"
-import { counter, timer } from "nda/dist/isomorphic/prelude"
+import { counter, timer, sleep } from "nda/dist/isomorphic/prelude"
 import { int, shuffle } from "nda/dist/isomorphic/rand"
 import { NewMountPoint } from "../../src/noact"
 import { Page, PageProps } from "./layout/page"
@@ -72,7 +72,7 @@ const invert_status = (status: TodoStatus) => {
 const perf = async (draw: () => void) => {
   const t = timer()
   draw()
-  await wait_frame()
+  await sleep(0)
   const elapsed = Math.round(t())
   const count = $$("*").length
   const benchmarks = $$<HTMLOutputElement>(".benchmark-output")

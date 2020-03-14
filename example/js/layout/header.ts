@@ -1,8 +1,7 @@
-import { Benchmark, BenchmarkProps } from "../components/benchmark"
 import { cn } from "nda/dist/isomorphic/dom"
 import { h1, header } from "../../../src/noact-elements"
 
-export type HeaderProps = {} & BenchmarkProps
+export type HeaderProps = {}
 
 export const Header = ({}: HeaderProps) =>
   header(
@@ -16,5 +15,4 @@ export const Header = ({}: HeaderProps) =>
       ),
     },
     h1({ className: "font-w500", txt: "This Page is Rendered Using Noact" }),
-    Benchmark({}),
   )
