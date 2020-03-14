@@ -53,10 +53,11 @@ export const BenchmarkControl = ({
         txt: `Put in ${MIN_TODOS}-${MAX_TODOS}:`,
       }),
       div(
-        { className: cn("d-flex") },
+        { className: cn("input-group", "d-flex", "flex-grow-1") },
         input({
           id: input_id,
           type: "number",
+          className: cn("flex-grow-1", "text-right"),
           min: str(MIN_TODOS),
           max: str(MAX_TODOS),
           value: str(todo_sections),

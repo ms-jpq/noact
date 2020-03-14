@@ -18,7 +18,7 @@ export const TodoInput = ({ oninput, idx }: TodoInputProps) => {
       txt: "I need to:",
     }),
     div(
-      { className: cn("d-flex", "flex-row") },
+      { className: cn("input-group", "d-flex", "flex-row") },
       input({
         id: input_id,
         className: "flex-grow-1",

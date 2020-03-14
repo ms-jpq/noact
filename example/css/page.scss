@@ -9,6 +9,7 @@
   --border-colour: rgba(0, 0, 0, 0.125);
   --border-corner: 0.5em;
   --background-white: white;
+  --input-group-outline: rgba(73, 70, 70, 0.925);
 }
 
 body {
@@ -61,6 +62,14 @@ body {
       grid-template-areas:
         "title title"
         "input output";
+    }
+
+    #benchmark-input {
+      label::after {
+        content: " ";
+        display: inline-block;
+        width: 0.5em;
+      }
     }
 
     .todo {
@@ -131,4 +140,20 @@ ul {
   border-width: thin;
   border-radius: var(--border-corner);
   border-color: var(--border-colour);
+}
+
+.input-group {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0.2em;
+  border-color: var(--input-group-outline);
+  > * {
+    border: unset;
+  }
+  > input {
+    border-right-style: solid;
+    border-right-width: thin;
+    border-right-color: var(--input-group-outline);
+    border-radius: 0;
+  }
 }
