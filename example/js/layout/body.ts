@@ -1,6 +1,6 @@
 import { cn } from "nda/dist/isomorphic/dom"
 import { main } from "../../../src/noact-elements"
-import { map, range } from "nda/dist/isomorphic/list"
+import { map, range } from "nda/dist/isomorphic/iterator"
 import { Readme } from "../components/readme"
 import { Todo, TodoProps } from "../components/todo/todo"
 import {

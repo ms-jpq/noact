@@ -1,10 +1,11 @@
 import { $$, wait_frame } from "nda/dist/browser/dom"
 import { BodyProps } from "./layout/body"
-import { count, filter, map, sort_by_keys } from "nda/dist/isomorphic/list"
-import { counter, timer, sleep } from "nda/dist/isomorphic/prelude"
+import { count_by, filter, map } from "nda/dist/isomorphic/iterator"
+import { counter, sleep, timer } from "nda/dist/isomorphic/prelude"
 import { int, shuffle } from "nda/dist/isomorphic/rand"
 import { NewMountPoint } from "../../src/noact"
 import { Page, PageProps } from "./layout/page"
+import { sort_by_keys } from "nda/dist/isomorphic/list"
 import {
   State,
   TodoItem,
@@ -31,8 +32,8 @@ const idx_by_status = (status: TodoStatus) => {
 const sort_todos = (items: TodoItem[]) =>
   sort_by_keys((i) => [idx_by_status(i.status), i.last_update], items)
 
-const INIT_ITEMS: TodoItem[] = sort_todos(
-  map(
+const INIT_ITEMS: TodoItem[] = sort_todos([
+  ...map(
     (i) => ({ ...i, id: inc(), last_update: inc() }),
     shuffle<Pick<TodoItem, "status" | "message">>([
       { message: "Printer ran out of juice again", status: "todo" },
@@ -47,7 +48,7 @@ const INIT_ITEMS: TodoItem[] = sort_todos(
       { message: "Download Mob Psycho", status: "done" },
     ]),
   ),
-)
+])
 
 const INIT_STATE: State = {
   todo_sections: 1,
@@ -102,19 +103,21 @@ const update = ({ todo_sections, viewing, items }: State) => {
   }
 
   const ontoggle = (item: TodoItem) => {
-    const new_items = map(
-      (i) => ({
-        ...i,
-        status: i.id === item.id ? invert_status(i.status) : i.status,
-        last_update: i.id === item.id ? Date.now() : i.last_update,
-      }),
-      items,
-    )
+    const new_items = [
+      ...map(
+        (i) => ({
+          ...i,
+          status: i.id === item.id ? invert_status(i.status) : i.status,
+          last_update: i.id === item.id ? Date.now() : i.last_update,
+        }),
+        items,
+      ),
+    ]
     update({ todo_sections, items: new_items, viewing })
   }
 
   const onremove = (item: TodoItem) => {
-    const new_items = filter((i) => i.id !== item.id, items)
+    const new_items = [...filter((i) => i.id !== item.id, items)]
     update({ todo_sections, items: new_items, viewing })
   }
 
@@ -128,7 +131,7 @@ const update = ({ todo_sections, viewing, items }: State) => {
     }
   }
 
-  const still_todo_count = count((i) => i.status === "todo", items)
+  const still_todo_count = count_by((i) => i.status === "todo", items)
 
   const body: BodyProps = {
     todo_sections,

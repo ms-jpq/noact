@@ -4,7 +4,7 @@ import express from "express"
 import nodemon, { Settings } from "nodemon"
 //@ts-ignore
 import parse from "parse-gitignore"
-import { big_print } from "nda/dist/node/prelude"
+import { big_print } from "nda/dist/node/console"
 import { hostname } from "os"
 import { slurp } from "nda/dist/node/fs"
 
