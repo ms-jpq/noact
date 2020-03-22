@@ -1,11 +1,15 @@
 import { $$, wait_frame } from "nda/dist/browser/dom"
 import { BodyProps } from "./layout/body"
-import { count_by, filter, map } from "nda/dist/isomorphic/iterator"
+import {
+  count_by,
+  filter,
+  map,
+  sort_by_keys,
+} from "nda/dist/isomorphic/iterator"
 import { counter, sleep, timer } from "nda/dist/isomorphic/prelude"
 import { int, shuffle } from "nda/dist/isomorphic/rand"
 import { NewMountPoint } from "../../src/noact"
 import { Page, PageProps } from "./layout/page"
-import { sort_by_keys } from "nda/dist/isomorphic/list"
 import {
   State,
   TodoItem,

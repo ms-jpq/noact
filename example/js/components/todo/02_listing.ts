@@ -1,6 +1,6 @@
 import { button, div, i, li, ol, span } from "../../../../src/noact-elements"
 import { cn } from "nda/dist/isomorphic/dom"
-import { map } from "nda/dist/isomorphic/list"
+import { map } from "nda/dist/isomorphic/iterator"
 import { TodoItem } from "../../state"
 
 export type TodoListingProps = {

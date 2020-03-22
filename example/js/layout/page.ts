@@ -1,7 +1,7 @@
 import { Body, BodyProps } from "./body"
 import { cn } from "nda/dist/isomorphic/dom"
 import { div } from "../../../src/noact-elements"
-import { filter } from "nda/dist/isomorphic/list"
+import { filter } from "nda/dist/isomorphic/iterator"
 import { Footer, FooterProps } from "./footer"
 import { Header, HeaderProps } from "./header"
 import { TodoItem, View } from "../state"
@@ -25,10 +25,12 @@ export type PageProps = {
 }
 
 export const Page = ({ last_view_update, header, body, footer }: PageProps) => {
-  const items = filter(
-    (i) => item_visible(body.viewing, last_view_update, i),
-    body.items,
-  )
+  const items = [
+    ...filter(
+      (i) => item_visible(body.viewing, last_view_update, i),
+      body.items,
+    ),
+  ]
   return div(
     {
       id: "container",
