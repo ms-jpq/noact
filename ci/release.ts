@@ -26,7 +26,7 @@ const git_clone = async () => {
     const token = process.env["CI_TOKEN"]
     const email = "ci@ci.ci"
     const username = "ci-bot"
-    const uri = `https://ms-jpq@${token}github.com/ms-jpq/noact-page.git`
+    const uri = `https://ms-jpq:${token}@github.com/ms-jpq/noact-page.git`
     run({ cmd: "git", args: ["clone", uri, artifacts_dir] })
     run({
       cmd: "git",
