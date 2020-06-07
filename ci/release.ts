@@ -27,13 +27,13 @@ const git_clone = async () => {
     const email = "ci@ci.ci"
     const username = "ci-bot"
     const uri = `https://ms-jpq:${token}@github.com/ms-jpq/noact-page.git`
-    run({ cmd: "git", args: ["clone", uri, artifacts_dir] })
-    run({
+    await run({ cmd: "git", args: ["clone", uri, artifacts_dir] })
+    await run({
       cmd: "git",
       args: ["config", "user.email", email],
       opts: { cwd: artifacts_dir },
     })
-    run({
+    await run({
       cmd: "git",
       args: ["config", "user.name", username],
       opts: { cwd: artifacts_dir },
