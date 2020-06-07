@@ -23,4 +23,6 @@ jobs:
       - name: Build Page
         env:
           CI_TOKEN: ${{ secrets.CI_TOKEN }}
-        run: ./ci/release.ts
+        run: |-
+          export PATH="$PWD/node_modules/.bin"
+          ./ci/release.ts
