@@ -1,10 +1,16 @@
 #!/usr/bin/env ts-node
-import { cp, isdir, readdir, rm } from "nda/dist/node/fs"
 import { filter, map } from "nda/dist/isomorphic/iterator"
+import { cp, isdir, readdir, rm } from "nda/dist/node/fs"
+import { dirname } from "nda/dist/node/path"
 import { call, SpawnArgs } from "nda/dist/node/sub_process"
 
 const dist_dir = "./dist"
 const artifacts_dir = "./artifacts"
+
+const chdir = () => {
+  const root = dirname(__dirname)
+  process.chdir(root)
+}
 
 const run = async (args: SpawnArgs) => {
   const code = await call(args)
@@ -62,6 +68,7 @@ const copy = async () => {
 }
 
 const main = async () => {
+  chdir()
   await git_clone()
   await run({ cmd: "npm", args: ["run", "build"] })
   await copy()
