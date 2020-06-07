@@ -14,16 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Install Node.js
         uses: actions/setup-node@v1
 
-      - name: Debug
-        run: |-
-          cd node_modules/.bin
-          ls -1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Packages
+        run: npm Install
 
       - name: Build Page
         env:
