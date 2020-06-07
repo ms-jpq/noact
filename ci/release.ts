@@ -44,7 +44,7 @@ const git_clone = async () => {
 const git_commit = async () => {
   const time = new Date().toISOString()
   const msg = `CI - ${time}`
-  await run({ cmd: "git", args: ["add", "-A"] })
+  await run({ cmd: "git", args: ["add", "-A"], opts: { cwd: artifacts_dir } })
   await run({
     cmd: "git",
     args: ["commit", "-m", msg],
