@@ -1,11 +1,13 @@
 #!/usr/bin/env ts-node
 import { filter, map } from "nda/dist/isomorphic/iterator"
-import { cp, isdir, readdir, rm } from "nda/dist/node/fs"
-import { dirname } from "nda/dist/node/path"
+import { cp, isdir, readdir, rm, spit } from "nda/dist/node/fs"
+import { dirname, join } from "nda/dist/node/path"
 import { call, SpawnArgs } from "nda/dist/node/sub_process"
 
+const time = new Date().toISOString()
 const dist_dir = "./dist"
 const artifacts_dir = "./artifacts"
+const diff_guarantee = join(artifacts_dir, "build_record.txt")
 
 const chdir = () => {
   const root = dirname(__dirname)
@@ -42,7 +44,6 @@ const git_clone = async () => {
 }
 
 const git_commit = async () => {
-  const time = new Date().toISOString()
   const msg = `CI - ${time}`
   await run({ cmd: "git", args: ["add", "-A"], opts: { cwd: artifacts_dir } })
   await run({
@@ -65,6 +66,7 @@ const copy = async () => {
   ])
   await Promise.all(map(rm, prev__artifacts))
   await cp(dist_dir, artifacts_dir)
+  await spit(time, diff_guarantee)
 }
 
 const main = async () => {
