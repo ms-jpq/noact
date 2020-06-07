@@ -20,6 +20,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
 
+      - name: Debug
+        run: |-
+          for file in node_modules/.bin/**
+          do
+            echo "$file"
+          done
+
       - name: Build Page
         env:
           CI_TOKEN: ${{ secrets.CI_TOKEN }}
