@@ -33,6 +33,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist; parcel build --public-url /noact-page example/index.html",
+    "ci": "./ci/release.ts",
     "pretty": "prettier --write **/**.tsx --write **/**.ts"
   },
   "version": "1.0.0"

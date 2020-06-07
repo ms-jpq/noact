@@ -17,12 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup env
-        run: npm install
+      - name: Install Node.js
+        uses: actions/setup-node@v1
 
       - name: Build Page
         env:
           CI_TOKEN: ${{ secrets.CI_TOKEN }}
-        run: |-
-          export PATH="$PWD/node_modules/.bin"
-          ./ci/release.ts
+        run: npm run ci
