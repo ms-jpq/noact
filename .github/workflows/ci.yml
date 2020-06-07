@@ -22,10 +22,8 @@ jobs:
 
       - name: Debug
         run: |-
-          for file in node_modules/.bin/**
-          do
-            echo "$file"
-          done
+          cd node_modules/.bin
+          ls -1
 
       - name: Build Page
         env:
