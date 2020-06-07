@@ -1,6 +1,6 @@
 ---
 
-name: Release
+name: CI
 
 on:
   push:
