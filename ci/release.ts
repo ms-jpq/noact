@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 import { filter, map } from "nda/dist/isomorphic/iterator"
 import { cp, isdir, readdir, rm, spit } from "nda/dist/node/fs"
-import { dirname, join } from "nda/dist/node/path"
+import { dirname, join } from "path"
 import { call, SpawnArgs } from "nda/dist/node/sub_process"
 
 const time = new Date().toISOString()
