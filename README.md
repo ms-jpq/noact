@@ -61,9 +61,9 @@ In essence, `component1` is both the rendering function, and the virtual DOM.
 
 [MIT License][mit]
 
-[demo.gif]: https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/demo.gif
-[typedemo.png]: https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/type_demo.png
-[auto complete gif]: https://github.com/ms-jpq/Noact/blob/master/_assets/auto_complete.gif
+[demo.gif]: https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/demo.gif
+[typedemo.png]: https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/type_demo.png
+[auto complete gif]: https://github.com/ms-jpq/Noact/blob/noact/_assets/auto_complete.gif
 [elm html]: https://package.elm-lang.org/packages/elm/html/latest/
-[mit]: https://github.com/ms-jpq/Noact/blob/master/LICENSE
-[60 lines]: https://github.com/ms-jpq/Noact/blob/master/src/noact.ts
+[mit]: https://github.com/ms-jpq/Noact/blob/noact/LICENSE
+[60 lines]: https://github.com/ms-jpq/Noact/blob/noact/src/noact.ts
