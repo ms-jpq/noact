@@ -60,7 +60,7 @@ export const Readme = ({}: ReadmeProps) =>
           a({
             txt: "static type checking",
             href:
-              "https://github.com/ms-jpq/Noact/blob/master/_assets/auto_complete.gif",
+              "https://github.com/ms-jpq/Noact/blob/noact/_assets/auto_complete.gif",
           }),
           span({ txt: "for free!" }),
         ),
@@ -69,7 +69,7 @@ export const Readme = ({}: ReadmeProps) =>
           b({ txt: "Simple:" }),
           a({
             txt: "Only 60 lines",
-            href: "https://github.com/ms-jpq/Noact/blob/master/src/noact.ts",
+            href: "https://github.com/ms-jpq/Noact/blob/noact/src/noact.ts",
           }),
           span({
             txt:
@@ -82,7 +82,7 @@ export const Readme = ({}: ReadmeProps) =>
       img({
         className: "img-responsive",
         src:
-          "https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/demo.gif",
+          "https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/demo.gif",
       }),
       p({}, b({ txt: "- Explosions -" })),
       p(
@@ -93,7 +93,7 @@ export const Readme = ({}: ReadmeProps) =>
       img({
         className: "img-responsive",
         src:
-          "https://raw.githubusercontent.com/ms-jpq/Noact/master/_assets/type_demo.png",
+          "https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/type_demo.png",
       }),
       hr(),
       h2({ txt: "Source code" }),
@@ -103,14 +103,14 @@ export const Readme = ({}: ReadmeProps) =>
           {},
           a({
             txt: "Rendering Engine",
-            href: "https://github.com/ms-jpq/noact/tree/master/src",
+            href: "https://github.com/ms-jpq/noact/tree/noact/src",
           }),
         ),
         li(
           {},
           a({
             txt: "This Page",
-            href: "https://github.com/ms-jpq/noact/tree/master/example",
+            href: "https://github.com/ms-jpq/noact/tree/noact/example",
           }),
         ),
       ),
