@@ -4,6 +4,8 @@ name: CI
 
 on:
   push:
+    branches: 
+      - noact
   schedule:
     - cron: "0 0 * * *" # daily
 
