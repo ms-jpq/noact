@@ -1,13 +1,11 @@
 {
   "author": "Fly Me to the Moon",
-  "browserslist": [
-    "last 5 Chrome versions"
-  ],
+  "browserslist": ["last 5 Chrome versions"],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.4.1",
     "cda": "git+https://github.com/ms-jpq/cda.git#6b807338f2e73d4077e309bae30371b685ff88c2",
-    "nda": "git+https://github.com/ms-jpq/nda.git#806e4fd089bed78ab87021ece05f4f43eca35fc4",
+    "nda": "git+https://github.com/ms-jpq/nda.git#91d51f331e93ecb9075fec94464ad515622acdf4",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.2"
   },
