@@ -3,7 +3,7 @@
   "browserslist": ["last 5 Chrome versions"],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^5.0.1",
     "cda": "git+https://github.com/ms-jpq/cda.git#6b807338f2e73d4077e309bae30371b685ff88c2",
     "nda": "git+https://github.com/ms-jpq/nda.git#91d51f331e93ecb9075fec94464ad515622acdf4",
     "parcel-bundler": "^1.12.4",
