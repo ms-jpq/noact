@@ -1,10 +1,6 @@
 title: Noact
 
-
 showcase: True
 
-desc: >-
-  React in less than 70 lines. With typesafety, and auto-complete.
-  
 images:
   - https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/type_demo.png
