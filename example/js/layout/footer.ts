@@ -1,4 +1,4 @@
-import { footer, span, a, p } from "../../../src/noact-elements"
+import { footer, span, a, p } from "../../../src/noact-elements.js"
 
 export type FooterProps = {}
 

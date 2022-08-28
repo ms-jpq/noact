@@ -1,10 +1,10 @@
-import { Body, BodyProps } from "./body"
-import { cn } from "nda/dist/isomorphic/dom"
-import { div } from "../../../src/noact-elements"
-import { filter } from "nda/dist/isomorphic/iterator"
-import { Footer, FooterProps } from "./footer"
-import { Header, HeaderProps } from "./header"
-import { TodoItem, View } from "../state"
+import { div } from "../../../src/noact-elements.js"
+import { TodoItem, View } from "../state.js"
+import { Body, BodyProps } from "./body.js"
+import { Footer, FooterProps } from "./footer.js"
+import { Header, HeaderProps } from "./header.js"
+import { cn } from "nda/iso/dom.js"
+import { filter } from "nda/iso/iterator.js"
 
 const item_visible = (view: View, last_view_update: number, item: TodoItem) => {
   switch (view) {

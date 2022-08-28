@@ -8,9 +8,5 @@ out
 *.bak
 *.js
 *.map
-tsc/
 dist/
-.cache/
-.vscode/
-.parcel-cache/
 artifacts/

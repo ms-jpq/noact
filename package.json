@@ -1,38 +1,34 @@
 {
   "author": "Fly Me to the Moon",
-  "browserslist": ["last 5 Chrome versions"],
+  "browserslist": [
+    "last 5 Chrome versions"
+  ],
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
-    "bootstrap": "^4.4.1",
-    "cda": "git+https://github.com/ms-jpq/cda.git#6b807338f2e73d4077e309bae30371b685ff88c2",
-    "nda": "git+https://github.com/ms-jpq/nda.git#b96c0d986808221ff63b3c15a32d5395db24bf52",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.2"
+    "@fortawesome/fontawesome-free": "^5",
+    "bootstrap": "^4",
+    "cda": "git+https://github.com/ms-jpq/cda.git#c2fcdf767a98d80880fca51586dd5be8567107a8",
+    "css-loader": "^6",
+    "html-webpack-plugin": "^5",
+    "mini-css-extract-plugin": "^2",
+    "nda": "git+https://github.com/ms-jpq/nda.git#950c35a740b511bc5dadafc44446e1758119c513",
+    "sass": "^1",
+    "sass-loader": "^13",
+    "ts-loader": "^9",
+    "webpack": "^5",
+    "webpack-cli": "^4"
   },
   "description": "_",
   "devDependencies": {
-    "@types/cors": "*",
-    "@types/express": "*",
     "@types/node": "*",
-    "@types/nodemon": "*",
-    "@typescript-eslint/eslint-plugin": "*",
-    "@typescript-eslint/parser": "*",
-    "cors": "*",
-    "eslint": "*",
-    "eslint-config-prettier": "*",
-    "eslint-plugin-prettier": "*",
-    "express": "*",
-    "nodemon": "*",
-    "parse-gitignore": "*",
     "prettier": "*",
-    "ts-node": "*",
     "typescript": "*"
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./dist; parcel build --public-url /noact-page example/index.html",
-    "ci": "./ci/release.ts",
+    "build": "./build.mjs",
+    "ci": "./ci/release.mjs",
     "pretty": "prettier --write **/**.tsx --write **/**.ts"
   },
+  "type": "module",
   "version": "1.0.0"
 }

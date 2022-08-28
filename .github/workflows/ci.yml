@@ -1,16 +1,14 @@
 ---
-
 name: CI
 
 on:
   push:
-    branches: 
+    branches:
       - noact
   schedule:
     - cron: "0 0 * * *" # daily
 
 jobs:
-
   release:
     runs-on: ubuntu-latest
 

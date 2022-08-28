@@ -1,6 +1,6 @@
-import { button, div, i, input, label } from "../../../../src/noact-elements"
-import { cn } from "nda/dist/isomorphic/dom"
-import { non_empty } from "nda/dist/isomorphic/validation"
+import { button, div, i, input, label } from "../../../../src/noact-elements.js"
+import { cn } from "nda/iso/dom.js"
+import { non_empty } from "nda/iso/validation.js"
 
 export type TodoInputProps = {
   oninput: (_: string) => void

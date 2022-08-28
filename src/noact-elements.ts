@@ -1,4 +1,4 @@
-import { Render } from "./noact"
+import { Render } from "./noact.js"
 
 /*
  * - GENERATED CODE -

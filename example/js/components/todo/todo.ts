@@ -1,8 +1,8 @@
-import { cn } from "nda/dist/isomorphic/dom"
-import { h2, section, p, div } from "../../../../src/noact-elements"
-import { TodoInput, TodoInputProps } from "./00_input"
-import { TodoListing, TodoListingProps } from "./02_listing"
-import { TodoSelect, TodoSelectProps } from "./01_select"
+import { cn } from "nda/iso/dom.js"
+import { h2, section, p, div } from "../../../../src/noact-elements.js"
+import { TodoInput, TodoInputProps } from "./00_input.js"
+import { TodoListing, TodoListingProps } from "./02_listing.js"
+import { TodoSelect, TodoSelectProps } from "./01_select.js"
 
 export type TodoProps = {
   still_todo_count: number
