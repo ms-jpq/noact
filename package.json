@@ -6,7 +6,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5",
     "bootstrap": "^4",
-    "cda": "git+https://github.com/ms-jpq/cda.git#c2fcdf767a98d80880fca51586dd5be8567107a8",
+    "cda": "git+https://github.com/ms-jpq/cda.git#157f512149ebb01ef272b890edbda6b6ae5de785",
     "css-loader": "^6",
     "html-webpack-plugin": "^5",
     "mini-css-extract-plugin": "^2",
