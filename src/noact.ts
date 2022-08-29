@@ -45,8 +45,8 @@ const reconciliate = (prev: NNode, next: NNode): NNode => {
   const children = longZip(prev.children, next.children).map(([p, n]) =>
     p && !n ? p().remove()
     : !p && n ? (element.append(n()), n)
-    : p.tagName !== n.tagName ? (p().replaceWith(n()), n)
-    : reconciliate(p, n)
+    : p!.tagName !== n!.tagName ? (p!().replaceWith(n!()), n)
+    : reconciliate(p!, n!)
   ).filter((c) => c)
   return Object.assign(prev, { props: next.props, children })
 }

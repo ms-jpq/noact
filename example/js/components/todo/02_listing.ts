@@ -1,7 +1,7 @@
-import { button, div, i, li, ol, span } from "../../../../src/noact-elements"
-import { cn } from "nda/dist/isomorphic/dom"
-import { map } from "nda/dist/isomorphic/iterator"
-import { TodoItem } from "../../state"
+import { button, div, i, li, ol, span } from "../../../../src/noact-elements.js"
+import { cn } from "nda/iso/dom.js"
+import { map } from "nda/iso/iterator.js"
+import { TodoItem } from "../../state.js"
 
 export type TodoListingProps = {
   ontoggle: (_: TodoItem) => void

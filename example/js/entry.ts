@@ -1,15 +1,6 @@
-import { $$, wait_frame } from "nda/dist/browser/dom"
-import { BodyProps } from "./layout/body"
-import { counter, sleep, timer } from "nda/dist/isomorphic/prelude"
-import { int, shuffle } from "nda/dist/isomorphic/rand"
-import { NewMountPoint } from "../../src/noact"
-import { Page, PageProps } from "./layout/page"
-import {
-  count_by,
-  filter,
-  map,
-  sort_by_keys,
-} from "nda/dist/isomorphic/iterator"
+import { NewMountPoint } from "../../src/noact.js"
+import { BodyProps } from "./layout/body.js"
+import { Page, PageProps } from "./layout/page.js"
 import {
   State,
   TodoItem,
@@ -17,10 +8,25 @@ import {
   View,
   MIN_TODOS,
   MAX_TODOS,
-} from "./state"
+} from "./state.js"
+import { $$ } from "nda/web/dom.js"
+import { count_by, filter, map, sort_by_keys } from "nda/iso/iterator.js"
+import { counter, sleep, timer } from "nda/iso/prelude.js"
+import { int } from "nda/iso/rand.js"
+import "../css/page.scss"
 
 const inc = counter()
 const mount = NewMountPoint(document.body)
+
+// https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+const shuffle = <T>(pool: Iterable<T>) => {
+  const coll = [...pool]
+  for (let i = coll.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[coll[i], coll[j]] = [coll[j]!, coll[i]!]
+  }
+  return coll
+}
 
 const idx_by_status = (status: TodoStatus) => {
   switch (status) {

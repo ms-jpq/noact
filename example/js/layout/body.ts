@@ -1,12 +1,12 @@
-import { cn } from "nda/dist/isomorphic/dom"
-import { main } from "../../../src/noact-elements"
-import { map, range } from "nda/dist/isomorphic/iterator"
-import { Readme } from "../components/readme"
-import { Todo, TodoProps } from "../components/todo/todo"
+import { main } from "../../../src/noact-elements.js"
 import {
   BenchmarkControlProps,
   BenchmarkControl,
-} from "../components/benchmark"
+} from "../components/benchmark.js"
+import { Readme } from "../components/readme.js"
+import { Todo, TodoProps } from "../components/todo/todo.js"
+import { cn } from "nda/iso/dom.js"
+import { map, range } from "nda/iso/iterator.js"
 
 export type BodyProps = {
   todo_sections: number

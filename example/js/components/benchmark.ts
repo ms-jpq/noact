@@ -1,5 +1,3 @@
-import { cn } from "nda/dist/isomorphic/dom"
-import { str } from "nda/dist/isomorphic/prelude"
 import {
   button,
   div,
@@ -8,8 +6,10 @@ import {
   output,
   section,
   h2,
-} from "../../../src/noact-elements"
-import { MIN_TODOS, MAX_TODOS } from "../state"
+} from "../../../src/noact-elements.js"
+import { MIN_TODOS, MAX_TODOS } from "../state.js"
+import { cn } from "nda/iso/dom.js"
+import { str } from "nda/iso/prelude.js"
 
 export type BenchmarkProps = {}
 

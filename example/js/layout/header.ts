@@ -1,5 +1,5 @@
-import { cn } from "nda/dist/isomorphic/dom"
-import { h1, header } from "../../../src/noact-elements"
+import { h1, header } from "../../../src/noact-elements.js"
+import { cn } from "nda/iso/dom.js"
 
 export type HeaderProps = {}
 

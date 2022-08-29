@@ -1,6 +1,6 @@
-import { button, div, h4 } from "../../../../src/noact-elements"
-import { cn } from "nda/dist/isomorphic/dom"
-import { View } from "../../state"
+import { button, div, h4 } from "../../../../src/noact-elements.js"
+import { cn } from "nda/iso/dom.js"
+import { View } from "../../state.js"
 
 export type TodoSelectProps = {
   onselect: (_: View) => void

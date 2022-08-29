@@ -1,4 +1,3 @@
-import { cn } from "nda/dist/isomorphic/dom"
 import {
   div,
   a,
@@ -14,9 +13,9 @@ import {
   h2,
   img,
   section,
-  h6,
   h4,
-} from "../../../src/noact-elements"
+} from "../../../src/noact-elements.js"
+import { cn } from "nda/iso/dom.js"
 
 export type ReadmeProps = {}
 
@@ -49,8 +48,7 @@ export const Readme = ({}: ReadmeProps) =>
           {},
           b({ txt: "Declarative:" }),
           span({
-            txt:
-              "Pretty much like React, without the JSX compilation of course, hence the name.",
+            txt: "Pretty much like React, without the JSX compilation of course, hence the name.",
           }),
         ),
         li(
@@ -59,8 +57,7 @@ export const Readme = ({}: ReadmeProps) =>
           span({ txt: "Noact is completely typesafe, which means you get" }),
           a({
             txt: "static type checking",
-            href:
-              "https://github.com/ms-jpq/Noact/blob/noact/_assets/auto_complete.gif",
+            href: "https://github.com/ms-jpq/Noact/blob/noact/_assets/auto_complete.gif",
           }),
           span({ txt: "for free!" }),
         ),
@@ -72,8 +69,7 @@ export const Readme = ({}: ReadmeProps) =>
             href: "https://github.com/ms-jpq/Noact/blob/noact/src/noact.ts",
           }),
           span({
-            txt:
-              "of type declarations & rendering code. (and 10ish lines of code-gen code)",
+            txt: "of type declarations & rendering code. (and 10ish lines of code-gen code)",
           }),
         ),
       ),
@@ -81,8 +77,7 @@ export const Readme = ({}: ReadmeProps) =>
       h2({ txt: "How it feels to write Noact" }),
       img({
         className: "img-responsive",
-        src:
-          "https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/demo.gif",
+        src: "https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/demo.gif",
       }),
       p({}, b({ txt: "- Explosions -" })),
       p(
@@ -92,8 +87,7 @@ export const Readme = ({}: ReadmeProps) =>
       ),
       img({
         className: "img-responsive",
-        src:
-          "https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/type_demo.png",
+        src: "https://raw.githubusercontent.com/ms-jpq/Noact/noact/_assets/type_demo.png",
       }),
       hr(),
       h2({ txt: "Source code" }),
