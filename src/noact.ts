@@ -51,7 +51,7 @@ const reconciliate = (prev: NNode, next: NNode): NNode => {
   return Object.assign(prev, { props: next.props, children })
 }
 
-export const NewRNode = (element: HTMLElement, props: Record<string, any> = {}, ...children: MaybeNNode[]): NNode =>
+export const NewRNode = (element: HTMLElement, props: Record<string, unknown> = {}, ...children: MaybeNNode[]): NNode =>
   Object.assign(() => element, { tagName: element.tagName, props, children: children.filter((c) => c) as NNode[] })
 
 export const NewMountPoint = (root: HTMLElement | ShadowRoot) => {
