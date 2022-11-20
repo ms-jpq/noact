@@ -16,10 +16,10 @@ export const Render = <T extends keyof E>(tagName: T) => (p: Props<E[T]> = {}, .
       return element
     }
     const e = (element = document.createElement(tagName))
-    Object.entries(_p).map(([k, v]) => (e[k] = v))
-    Object.entries(style).map(([k, v]) => (e.style[k] = v))
-    Object.entries(dataset).map(([k, v]) => (e.dataset[k] = v as string))
-    children.map((child) => e.append(child()))
+    Object.entries(_p).forEach(([k, v]) => (e[k] = v))
+    Object.entries(style).forEach(([k, v]) => (e.style[k] = v))
+    Object.entries(dataset).forEach(([k, v]) => (e.dataset[k] = v as string))
+    children.forEach((child) => e.append(child()))
     return e
   })(undefined)
   return Object.assign(render, { tagName, props, children })
@@ -29,12 +29,12 @@ const patchProps = (prev: NNode, next: NNode) => {
   const e = prev()
   const { style: pStyle = {}, dataset: pData = {}, ...pProps } = prev.props
   const { style: nStyle = {}, dataset: nData = {}, ...nProps } = next.props
-  Object.entries(pProps).map(([k]) => nProps[k] === undefined && (e[k] = undefined))
-  Object.entries(nProps).map(([k, v]) => pProps[k] !== v && (e[k] = v))
-  Object.entries(pStyle).map(([k]) => nStyle[k] === undefined && e.style.removeProperty(k))
-  Object.entries(nStyle).map(([k, v]) => pStyle[k] !== v && (e.style[k] = v))
-  Object.entries(pData).map(([k]) => nData[k] === undefined && Reflect.deleteProperty(e.dataset, k))
-  Object.entries(nData).map(([k, v]) => pData[k] !== v && (e.dataset[k] = v as string))
+  Object.entries(pProps).forEach(([k]) => nProps[k] === undefined && (e[k] = undefined))
+  Object.entries(nProps).forEach(([k, v]) => pProps[k] !== v && (e[k] = v))
+  Object.entries(pStyle).forEach(([k]) => nStyle[k] === undefined && e.style.removeProperty(k))
+  Object.entries(nStyle).forEach(([k, v]) => pStyle[k] !== v && (e.style[k] = v))
+  Object.entries(pData).forEach(([k]) => nData[k] === undefined && Reflect.deleteProperty(e.dataset, k))
+  Object.entries(nData).forEach(([k, v]) => pData[k] !== v && (e.dataset[k] = v as string))
 }
 
 const longZip = <T>(a1: T[], a2: T[]) => [...Array(Math.max(a1.length, a2.length)).keys()].map((_, i) => [a1[i], a2[i]])
