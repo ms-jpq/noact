@@ -1,6 +1,4 @@
 ---
-name: CI
-
 on:
   push:
     branches:
@@ -13,18 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install Packages
-        run: npm install
+      - run: |-
+          npm install
 
-      - name: Build Page
-        env:
+      - env:
           CI_TOKEN: ${{ secrets.CI_TOKEN }}
         run: npm run ci
