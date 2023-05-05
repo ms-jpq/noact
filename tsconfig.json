@@ -5,7 +5,6 @@
     "allowSyntheticDefaultImports": true,
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,
-    "ignoreDeprecations": "5.0",
     "incremental": true,
     "module": "nodenext",
     "noFallthroughCasesInSwitch": true,
@@ -16,9 +15,8 @@
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "suppressImplicitAnyIndexErrors": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules/**", "dist/**"],
-  "include": ["**/*.ts", "**/*.mjs"]
+  "exclude": ["node_modules", "artifacts"],
+  "include": ["."]
 }
