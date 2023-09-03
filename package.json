@@ -4,7 +4,7 @@
     "last 5 Chrome versions"
   ],
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5",
+    "@fortawesome/fontawesome-free": "^6",
     "bootstrap": "^4",
     "cda": "git+https://github.com/ms-jpq/cda.git#157f512149ebb01ef272b890edbda6b6ae5de785",
     "css-loader": "^6",
