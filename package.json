@@ -15,7 +15,7 @@
     "sass-loader": "^13",
     "ts-loader": "^9",
     "webpack": "^5",
-    "webpack-cli": "^4"
+    "webpack-cli": "^5"
   },
   "description": "_",
   "devDependencies": {
