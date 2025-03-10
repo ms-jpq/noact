@@ -29,7 +29,7 @@ export const Body = ({
     { className: cn("d-grid", "row-gap-8") },
     Readme({}),
     BenchmarkControl({ todo_sections, on_new_bench, onrandom }),
-    ...map(range(1, todo_sections), (idx) =>
+    ...map(range(0, todo_sections), (idx) =>
       Todo({
         idx,
         viewing,
