@@ -1,15 +1,14 @@
+import { cn } from "nda/iso/dom.js"
 import {
   button,
   div,
+  h2,
   input,
   label,
   output,
   section,
-  h2,
 } from "../../../src/noact-elements.js"
-import { MIN_TODOS, MAX_TODOS } from "../state.js"
-import { cn } from "nda/iso/dom.js"
-import { str } from "nda/iso/prelude.js"
+import { MAX_TODOS, MIN_TODOS } from "../state.js"
 
 export type BenchmarkProps = {}
 
@@ -58,9 +57,9 @@ export const BenchmarkControl = ({
           id: input_id,
           type: "number",
           className: cn("flex-grow-1", "text-right"),
-          min: str(MIN_TODOS),
-          max: str(MAX_TODOS),
-          value: str(todo_sections),
+          min: String(MIN_TODOS),
+          max: String(MAX_TODOS),
+          value: String(todo_sections),
           onchange: ({ target }) => {
             const { value } = target as HTMLInputElement
             on_new_bench(parseInt(value))

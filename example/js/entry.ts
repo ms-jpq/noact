@@ -1,25 +1,25 @@
-import { NewMountPoint } from "../../src/noact.js"
-import { BodyProps } from "./layout/body.js"
-import { Page, PageProps } from "./layout/page.js"
-import {
-  State,
-  TodoItem,
-  TodoStatus,
-  View,
-  MIN_TODOS,
-  MAX_TODOS,
-} from "./state.js"
-import { $$ } from "nda/web/dom.js"
 import { count_by, filter, map, sort_by_keys } from "nda/iso/iterator.js"
 import { counter, sleep, timer } from "nda/iso/prelude.js"
 import { int } from "nda/iso/rand.js"
+import { $$ } from "nda/web/dom.js"
+import { NewMountPoint } from "../../src/noact.js"
 import "../css/page.scss"
+import { type BodyProps } from "./layout/body.js"
+import { Page, type PageProps } from "./layout/page.js"
+import {
+  MAX_TODOS,
+  MIN_TODOS,
+  type State,
+  type TodoItem,
+  type TodoStatus,
+  type View,
+} from "./state.js"
 
 const inc = counter()
 const mount = NewMountPoint(document.body)
 
 // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-const shuffle = <T>(pool: Iterable<T>) => {
+const shuffle = <const T>(pool: Iterable<T>) => {
   const coll = [...pool]
   for (let i = coll.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -40,12 +40,11 @@ const idx_by_status = (status: TodoStatus) => {
 }
 
 const sort_todos = (items: TodoItem[]) =>
-  sort_by_keys((i) => [idx_by_status(i.status), i.last_update], items)
+  sort_by_keys(items, (i) => [idx_by_status(i.status), i.last_update])
 
-const INIT_ITEMS: TodoItem[] = sort_todos([
+const INIT_ITEMS = sort_todos([
   ...map(
-    (i) => ({ ...i, id: inc(), last_update: inc() }),
-    shuffle<Pick<TodoItem, "status" | "message">>([
+    shuffle([
       { message: "Printer ran out of juice again", status: "todo" },
       { message: "Something about neighbour's cat", status: "todo" },
       { message: "Go to bed before 1AM", status: "todo" },
@@ -57,6 +56,7 @@ const INIT_ITEMS: TodoItem[] = sort_todos([
       { message: "Get groceries", status: "done" },
       { message: "Download Mob Psycho", status: "done" },
     ]),
+    (i) => ({ ...i, id: inc(), last_update: inc() }),
   ),
 ])
 
@@ -76,7 +76,7 @@ const invert_status = (status: TodoStatus) => {
     case "done":
       return "todo"
     default:
-      throw new Error("invaild status")
+      throw new Error("invalid status")
   }
 }
 
@@ -114,20 +114,17 @@ const update = ({ todo_sections, viewing, items }: State) => {
 
   const ontoggle = (item: TodoItem) => {
     const new_items = [
-      ...map(
-        (i) => ({
-          ...i,
-          status: i.id === item.id ? invert_status(i.status) : i.status,
-          last_update: i.id === item.id ? Date.now() : i.last_update,
-        }),
-        items,
-      ),
+      ...map(items, (i) => ({
+        ...i,
+        status: i.id === item.id ? invert_status(i.status) : i.status,
+        last_update: i.id === item.id ? Date.now() : i.last_update,
+      })),
     ]
     update({ todo_sections, items: new_items, viewing })
   }
 
   const onremove = (item: TodoItem) => {
-    const new_items = [...filter((i) => i.id !== item.id, items)]
+    const new_items = [...filter(items, (i) => i.id !== item.id)]
     update({ todo_sections, items: new_items, viewing })
   }
 
@@ -141,7 +138,7 @@ const update = ({ todo_sections, viewing, items }: State) => {
     }
   }
 
-  const still_todo_count = count_by((i) => i.status === "todo", items)
+  const still_todo_count = count_by(items, (i) => i.status === "todo")
 
   const body: BodyProps = {
     todo_sections,

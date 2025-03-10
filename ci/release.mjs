@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { top_level, run, dist_dir } from "../build.mjs"
 import { filter } from "nda/iso/iterator.js"
 import { lstatSync, readdirSync, rmSync, writeFileSync } from "node:fs"
 import { join, sep } from "node:path"
 import { env } from "node:process"
+import { dist_dir, run, top_level } from "../build.mjs"
 
 /**
  * @param {string} path
@@ -44,7 +44,7 @@ const git_commit = () => {
 
 const copy = async () => {
   const prev = readdirSync(artifacts_dir)
-  for (const name of filter((n) => !n.endsWith(".git"), prev)) {
+  for (const name of filter(prev, (n) => !n.endsWith(".git"))) {
     const path = join(artifacts_dir, name)
     rmSync(path, { recursive: true })
   }

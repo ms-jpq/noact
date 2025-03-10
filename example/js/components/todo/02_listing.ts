@@ -1,7 +1,7 @@
-import { button, div, i, li, ol, span } from "../../../../src/noact-elements.js"
 import { cn } from "nda/iso/dom.js"
 import { map } from "nda/iso/iterator.js"
-import { TodoItem } from "../../state.js"
+import { button, div, i, li, ol, span } from "../../../../src/noact-elements.js"
+import { type TodoItem } from "../../state.js"
 
 export type TodoListingProps = {
   ontoggle: (_: TodoItem) => void
@@ -15,6 +15,7 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
     ol(
       {},
       ...map(
+        items,
         (item) =>
           li(
             {
@@ -50,7 +51,6 @@ export const TodoListing = ({ ontoggle, onremove, items }: TodoListingProps) =>
               onclick: () => onremove(item),
             }),
           ),
-        items,
       ),
     ),
   )

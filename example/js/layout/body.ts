@@ -1,12 +1,12 @@
-import { main } from "../../../src/noact-elements.js"
-import {
-  BenchmarkControlProps,
-  BenchmarkControl,
-} from "../components/benchmark.js"
-import { Readme } from "../components/readme.js"
-import { Todo, TodoProps } from "../components/todo/todo.js"
 import { cn } from "nda/iso/dom.js"
 import { map, range } from "nda/iso/iterator.js"
+import { main } from "../../../src/noact-elements.js"
+import {
+  BenchmarkControl,
+  type BenchmarkControlProps,
+} from "../components/benchmark.js"
+import { Readme } from "../components/readme.js"
+import { Todo, type TodoProps } from "../components/todo/todo.js"
 
 export type BodyProps = {
   todo_sections: number
@@ -29,19 +29,17 @@ export const Body = ({
     { className: cn("d-grid", "row-gap-8") },
     Readme({}),
     BenchmarkControl({ todo_sections, on_new_bench, onrandom }),
-    ...map(
-      (idx) =>
-        Todo({
-          idx,
-          viewing,
-          items,
-          oninput,
-          onremove,
-          onselect,
-          ontoggle,
-          todo_sections,
-          still_todo_count,
-        }),
-      range(1, todo_sections),
+    ...map(range(1, todo_sections), (idx) =>
+      Todo({
+        idx,
+        viewing,
+        items,
+        oninput,
+        onremove,
+        onselect,
+        ontoggle,
+        todo_sections,
+        still_todo_count,
+      }),
     ),
   )

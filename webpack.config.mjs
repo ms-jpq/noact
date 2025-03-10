@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
-import { dirname, join, basename } from "node:path"
+import { basename, dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 export const top_level = dirname(fileURLToPath(new URL(import.meta.url)))

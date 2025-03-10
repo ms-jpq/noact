@@ -1,5 +1,5 @@
-import { h1, header } from "../../../src/noact-elements.js"
 import { cn } from "nda/iso/dom.js"
+import { h1, header } from "../../../src/noact-elements.js"
 
 export type HeaderProps = {}
 
