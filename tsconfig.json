@@ -1,22 +1,26 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "compileOnSave": true,
   "compilerOptions": {
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
     "checkJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
+    "composite": true,
     "module": "nodenext",
+    "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "outDir": "node_modules/.cache/ts_compiled",
-    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "verbatimModuleSyntax": true
   },
   "exclude": ["node_modules", "artifacts"],
-  "include": ["."]
+  "include": ["."],
+  "references": []
 }

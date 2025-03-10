@@ -10,7 +10,7 @@
     "css-loader": "^6",
     "html-webpack-plugin": "^5",
     "mini-css-extract-plugin": "^2",
-    "nda": "git+https://github.com/ms-jpq/nda.git#950c35a740b511bc5dadafc44446e1758119c513",
+    "nda": "git+https://github.com/ms-jpq/nda.git#e5baf5fc4e07605c4702ca47e563d7d6cc0e81ec",
     "sass": "^1",
     "sass-loader": "^13",
     "ts-loader": "^9",
