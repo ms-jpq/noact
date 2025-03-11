@@ -1,4 +1,4 @@
-import { count_by, filter, map } from "nda/iso/iterator.js"
+import { count_by, filter, map, sort_by_keys } from "nda/iso/iterator.js"
 import { counter, sleep, timer } from "nda/iso/prelude.js"
 import { int } from "nda/iso/rand.js"
 import { $$ } from "nda/web/dom.js"
@@ -40,14 +40,7 @@ const idx_by_status = (status: TodoStatus) => {
 }
 
 const sort_todos = (items: TodoItem[]) =>
-  [...items].sort((l, r) => {
-    const a = idx_by_status(l.status)
-    const b = idx_by_status(r.status)
-    if (a !== b) {
-      return a - b
-    }
-    return l.last_update - r.last_update
-  })
+  sort_by_keys(items, (i) => [idx_by_status(i.status), i.last_update])
 
 const INIT_ITEMS = sort_todos([
   ...map(
